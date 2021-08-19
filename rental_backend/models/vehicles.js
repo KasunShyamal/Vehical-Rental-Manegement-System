@@ -31,7 +31,7 @@ const vehicleSchema = new mongoose.Schema({
     },
     images:{
         type: Object,
-        required:false
+        required: true
     },
     category:{
         type: String,
