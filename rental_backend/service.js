@@ -1,12 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const dotenv = require("dotenv");
+//const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const nodemon = require("nodemon");
 const app = express();
 require("dotenv").config();
-
 
 const PORT = process.env.PORT || 8092;
 
@@ -26,7 +25,8 @@ const connection = mongoose.connection;
 connection.once("open", () => {
     console.log("MongoDb connection success!");
 })
-
+const vehicleRouter=require('./routes/vehicles');
+app.use('/vehicles',vehicleRouter);
 app.listen(PORT, () =>{
     console.log(`Server is up and running in port no : ${PORT}`);
-})
+});
