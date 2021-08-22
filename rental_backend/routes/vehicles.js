@@ -52,24 +52,23 @@ Vehicles.findById(req.params.id)//catct the id from url
      vehicle.sheet_count=req.body.sheet_count;
      vehicle.description=req.body.description;
      vehicle.amenties=req.body.amenties;
-     vehicle.category=req.body.catogory
+     vehicle.category=req.body.category;
      //vehicle.articleImage=req.file.originalname
+     vehicle
      .save()
      .then(()=>
-      res.json("Update Article scussfully"))
+      res.json("Update  scussfully"))
         .catch((err)=>
-         res.status(500).json("Error:${err}"))
+         res.status(500).json(`Error:${err}`))
    })
- 
-   .catch((err)=>
-   res.status(500).json("Error:${err}"))
   })
+   
  
 
 router.delete('/:id',(req,res)=>{
-  Articles.findByIdAndDelete(req.params.id)
-  .then(()=>res.json("the article deletete"))
+  Vehicles.findByIdAndDelete(req.params.id)
+  .then(()=>res.json("the vehicle deletete"))
   .catch((err)=>
-  res.status(500).json("Error:${err}"))
+  res.status(500).json(`Error:${err}`))
 });
   module.exports=router;
