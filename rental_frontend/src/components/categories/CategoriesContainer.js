@@ -15,7 +15,7 @@ class CategoriesContainer extends Component {
 
     // Update Categories by fetching from datasbase
     updateCategories = () => {
-        axios.get("http://localhost:8080/api/categories/").then(res => {
+        axios.get("http://localhost:8092/api/categories/").then(res => {
             this.setState({ categories: res.data });
         }).catch(err => {
             console.log(err);
@@ -33,7 +33,7 @@ class CategoriesContainer extends Component {
 
     // Add category
     createCategory = () => {
-        axios.post("http://localhost:8080/api/categories/AddCategory", { category: this.state.category }).then(res => {
+        axios.post("http://localhost:8092/api/categories/AddCategory", { category: this.state.category }).then(res => {
             this.setState({ category: "" });
             this.updateCategories();
             Alert("success", "Done!", "Category Created Successfully.");
