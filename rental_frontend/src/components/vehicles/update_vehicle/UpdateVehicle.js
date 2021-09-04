@@ -27,11 +27,11 @@ class UpdateVehicle extends Component {
     // Update Categories by fetching from datasbase
     componentDidMount() {
         // request to get vehicle by id
-        axios.get(`http://localhost:8080/api/vehicles/${this.props.match.params.id}`).then(res => {
+        axios.get(`http://localhost:8092/api/vehicles/${this.props.match.params.id}`).then(res => {
             let vehicle = res.data;
 
             // request to get all categories
-            axios.get("http://localhost:8080/api/categories/").then(response => {
+            axios.get("http://localhost:8092/api/categories/").then(response => {
 
                 this.setState({
                     id: vehicle._id,
@@ -118,7 +118,7 @@ class UpdateVehicle extends Component {
                 formData.set("category", this.state.category);
                 formData.set("isImageUpdated", this.state.isUpdated);
 
-                axios.put(`http://localhost:8080/api/vehicles/UpdateVehicle/${this.state.id}`, formData).then(res => {
+                axios.put(`http://localhost:8092/api/vehicles/UpdateVehicle/${this.state.id}`, formData).then(res => {
                     Alert("success", "Done!", "Vehicle Updated Successfully.");
                     this.setState({
                         image: null,

@@ -33,7 +33,7 @@ router.post('/AddVehicle', async (req, res) => {
 
     let image = req.files.photo;
 
-    let urlPrefix = "http://localhost:8080/static/images";
+    let urlPrefix = "http://localhost:8092/static/images";
     let imageName = Date.now() + "-" + image.name;
 
     image.mv("./public/images/Vehicles/" + imageName, (err, result) => {
@@ -84,7 +84,7 @@ router.put("/UpdateVehicle/:id", async (req, res) => {
 
         let image = req.files.photo;
 
-        let urlPrefix = "http://localhost:8080/static/images";
+        let urlPrefix = "http://localhost:8092/static/images";
         let imageName = Date.now() + "-" + image.name;
 
         image.mv("./public/images/Vehicles/" + imageName, (err, result) => {

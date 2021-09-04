@@ -26,7 +26,7 @@ const VehicleActions = (props) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:8080/api/vehicles/DeleteVehicle/${vehicle._id}`)
+                axios.delete(`http://localhost:8092/api/vehicles/DeleteVehicle/${vehicle._id}`)
                     .then(res => {
                         Swal.fire(
                             'Done!',

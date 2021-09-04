@@ -12,7 +12,7 @@ class ViewMoreVehicle extends Component {
 
     // Get all vehicle by id
     componentDidMount() {
-        axios.get(`http://localhost:8080/api/vehicles/${this.props.match.params.id}`).then(res => {
+        axios.get(`http://localhost:8092/api/vehicles/${this.props.match.params.id}`).then(res => {
             this.setState({ vehicle: res.data });
             console.log(res.data);
         }).catch(err => {

@@ -24,7 +24,7 @@ class CreateVehicle extends Component {
 
     // Update Categories by fetching from datasbase
     componentDidMount() {
-        axios.get("http://localhost:8080/api/categories/").then(res => {
+        axios.get("http://localhost:8092/api/categories/").then(res => {
             this.setState({ categories: res.data });
         }).catch(err => {
             console.log(err);
@@ -100,7 +100,7 @@ class CreateVehicle extends Component {
 
                 console.log("formData", this.state);
 
-                axios.post("http://localhost:8080/api/vehicles/AddVehicle", formData).then(res => {
+                axios.post("http://localhost:8092/api/vehicles/AddVehicle", formData).then(res => {
                     Alert("success", "Done!", "Vehicle Created Successfully.");
                     this.setState({
                         image: null,

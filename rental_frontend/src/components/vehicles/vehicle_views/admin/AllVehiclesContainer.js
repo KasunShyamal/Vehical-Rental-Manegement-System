@@ -16,7 +16,7 @@ class AllVehiclesContainer extends Component {
     }
 
     updateContent = () => {
-        axios.get("http://localhost:8080/api/vehicles/").then(res => {
+        axios.get("http://localhost:8092/api/vehicles/").then(res => {
             this.setState({
                 vehicles: res.data,
                 filterdVehicles: res.data,
