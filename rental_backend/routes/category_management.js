@@ -35,5 +35,13 @@ router.post('/AddCategory', async (req, res) => {
     }
 
 });
+/*Router for delete category*/
+router.delete("/DeleteCategory/:id", async (req, res) => {
+
+    await Category.findByIdAndDelete(req.params.id)
+        .then(() => res.send("category Deleted Successfully!"))
+        .catch(err => res.status(400).send("Error : " + err));
+
+});
 
 module.exports = router;
