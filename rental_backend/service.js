@@ -6,8 +6,11 @@ const bodyParser = require("body-parser");
 const nodemon = require("nodemon");
 const app = express();
 require("dotenv").config();
+const path = require("path");
+const fileupload = require("express-fileupload");
 
-const PORT = process.env.PORT || 8092;
+
+const PORT = process.env.PORT ;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -25,8 +28,20 @@ const connection = mongoose.connection;
 connection.once("open", () => {
     console.log("MongoDb connection success!");
 })
-const vehicleRouter=require('./routes/vehicles');
-app.use('/vehicles',vehicleRouter);
+// Middleware
+app.use(express.json());
+app.use(fileupload());
+app.use(cors());
+
+// Import routes
+const VehicleManagement = require("./routes/vehicle_management");
+const Category_Management = require("./routes/category_management");
+// Use routes
+app.use("/api/vehicles", VehicleManagement);
+
+app.use("/api/categories", Category_Management);
+app.use('/static', express.static(path.join(__dirname, 'public')))
+
 app.listen(PORT, () =>{
-    console.log(`Server is up and running in port no : ${PORT}`);
+    console.log(`Server is up and running in port no : `+PORT);
 });
