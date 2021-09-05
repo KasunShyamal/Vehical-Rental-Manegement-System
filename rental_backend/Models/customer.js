@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const schema = mongoose.Schema;
 
-const customerSchema = new schema({
+const userSchema = new schema({
     Name : {
         type : String,
         required : true
@@ -36,17 +36,15 @@ const customerSchema = new schema({
         required : true,
     },
 
-    isAdmin : {
-        type :Boolean,
-        required : true,
-        default : false,
+    UserType : {
+        type : String,
+        required : true
     },
 
-    isPartner : {
-        type :Boolean,
-        required : true,
-        default : false,
+    BussinessType : {
+        type : String
     },
+    
 
     pic : {
         type : String,
@@ -55,6 +53,19 @@ const customerSchema = new schema({
     }
 });
 
-const Customer = mongoose.model('Customer',customerSchema);
+userSchema.pre("save", async function(next){
+    if(!this.isModified("Password")){
+        next();
+    }
 
-module.exports = Customer;
+    const salt = await bcrypt.genSalt(10);
+    this.Password = await bcrypt.hash(this.Password, salt);
+});
+
+userSchema.methods.matchPassword = async function(enteredPassword){
+    return await bcrypt.compare(enteredPassword, this.Password);
+};
+
+const User = mongoose.model('User',userSchema);
+
+module.exports = User;
