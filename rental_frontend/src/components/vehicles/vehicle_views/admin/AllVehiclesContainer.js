@@ -4,7 +4,12 @@ import axios from "axios"
 import ReactToPrint from 'react-to-print';
 
 import VehicleActions from './VehicleActions';
-
+const styles = {
+    paperContainer: {
+        height: 1356,
+        backgroundImage: `url(${"../assets/images/dummy_image.jpg"})`
+    }
+};
 class AllVehiclesContainer extends Component {
     constructor(props) {
         super(props);
