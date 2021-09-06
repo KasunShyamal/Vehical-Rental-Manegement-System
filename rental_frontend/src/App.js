@@ -12,12 +12,13 @@ import AllVehiclesForUser from './components/vehicles/vehicle_views/user/AllVehi
 //import ViewMorePackage from './components/packages/all_packages/ViewMorePackage';
 import ViewMoreVehicle from './components/vehicles/vehicle_views/ViewMoreVehicle';
 import AdminNavbar from './components/shared/navigators/AdminNavbar';
-
+import Header from './components/shared/header/Header';
 function App() {
 
   return (
     <React.Fragment>
       <Router>
+      <Header/>
         <AdminNavbar />
         <Switch>
           <Route path="/admin">
