@@ -1,10 +1,11 @@
 import React from 'react';
-function App() {
-  return (
-    <div className="App">
-      <h1>Hellow</h1>
-    </div>
-  );
+import pageOne from './Pages/pageOne/pageOne';
+
+
+const App = () =>{
+  <BrowserRouter>
+  
+  </BrowserRouter>
 }
 
 export default App;
