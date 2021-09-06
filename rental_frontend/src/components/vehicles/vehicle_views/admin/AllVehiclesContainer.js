@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import axios from "axios"
 import ReactToPrint from 'react-to-print';
-
+import styled from 'styled-components';
 import VehicleActions from './VehicleActions';
 const styles = {
     paperContainer: {
@@ -61,18 +61,20 @@ class AllVehiclesContainer extends Component {
 
     render() {
         return (
-
+<SearchContainer>
             <div className="container-fluid mt-5">
                 <div className="row">
                     <nav class="navbar navbar-light bg-light">
-                        <div class="container-fluid">
+                    
+                        <div class="container">
                             <div class="d-flex">
                                 <input onChange={(e) => this.search(e)} class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </div>
                         </div>
+                        
                     </nav>
-
+              
                     {
                         this.state.isGen ? <div className="row text-end">
                             <div className="col">
@@ -91,6 +93,7 @@ class AllVehiclesContainer extends Component {
                         </div> : <div className="row text-end">
                             <div className="col">
                                 {this.getRedirectButton()}
+                                <button type="button" onClick={() => { this.props.history.push("/admin/vehicles/CreateVehicle") }} class="btn btn-outline-primary m-2">Create Vehicle</button>
                                 <button type="button" onClick={() => { this.setState({ isGen: true }); }} class="btn btn-outline-secondary">Genrate Report</button>
                             </div>
                         </div>
@@ -129,9 +132,30 @@ class AllVehiclesContainer extends Component {
 
                 </div>
             </div>
-
+            </SearchContainer>
         );
     }
 }
 
 export default withRouter(AllVehiclesContainer);
+const SearchContainer = styled.div`
+  
+
+.nav-link{
+color:white !important;
+.container{
+    background:red;
+    widht:100%;
+
+}
+.btn btn-outline-success{
+    background:red;
+   
+
+}
+.form-control me-2{
+    background-color:black
+}
+}
+
+`;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-
-
+import styled from 'styled-components';
 const AdminNavbar = () => {
     const history = useHistory();
     const handleClick = (path) => {
@@ -9,9 +8,14 @@ const AdminNavbar = () => {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
-            <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul className="navbar-nav text-center">
+        <NavbarContainer>
+        <nav className="navbar navbar-expand-lg navbar-light ">
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    
+                <ul className="navbar-nav mr-auto">
                     <li onClick={() => handleClick("/")} className="nav-item active">
                         <a className="nav-link" href="#">Home</a>
                     </li>
@@ -19,13 +23,28 @@ const AdminNavbar = () => {
                     <li onClick={() => handleClick("/admin/vehicles/")} className="nav-item active">
                         <a className="nav-link" href="#">Vehicles</a>
                     </li>
+                    <li onClick={() => handleClick("/admin/vehicles/CreateVehicle")} className="nav-item active">
+                        <a className="nav-link" href="#">Create Vehicle</a>
+                    </li>
                     <li onClick={() => handleClick("/admin/categories/")} className="nav-item active">
                         <a className="nav-link" href="#">Categories</a>
                     </li>
                 </ul>
             </div>
         </nav >
+        </NavbarContainer>
     );
 }
 
 export default AdminNavbar;
+//main navbar container
+const NavbarContainer = styled.div`
+  
+background: black;
+.nav-link{
+color:white !important;
+&:hover{
+    background-image: linear-gradient(to right top, #3f7f85, #578e9a, #6f9dad, #89acbf, #a2bbd0, #9eb7cb, #99b2c7, #95aec2, #7396a6, #527e89, #34666b, #194f4c);
+}
+}
+`;

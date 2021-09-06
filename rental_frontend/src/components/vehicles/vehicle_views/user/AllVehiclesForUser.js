@@ -38,7 +38,7 @@ class AllVehiclesForUser extends Component {
                                 return <VehicleSmallView vehicle={vehicle} count={4} />
                             })
                         }
-                    </React.Fragment>
+                    </React.Fragment><br/>
                 </div>
             </div>
 

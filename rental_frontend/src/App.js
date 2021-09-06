@@ -7,9 +7,7 @@ import {
 
 import AdminContainer from './components/admin/AdminContainer';
 import Footer from './components/shared/footer/Footer';
-//import AllPackagesForUser from './components/packages/all_packages/package_views/user/AllPackagesForUser';
 import AllVehiclesForUser from './components/vehicles/vehicle_views/user/AllVehiclesForUser';
-//import ViewMorePackage from './components/packages/all_packages/ViewMorePackage';
 import ViewMoreVehicle from './components/vehicles/vehicle_views/ViewMoreVehicle';
 import AdminNavbar from './components/shared/navigators/AdminNavbar';
 import Header from './components/shared/header/Header';
