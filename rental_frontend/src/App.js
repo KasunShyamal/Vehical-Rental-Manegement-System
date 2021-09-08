@@ -1,11 +1,23 @@
 import React from 'react';
-import pageOne from './Pages/pageOne/pageOne';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Landingpage from './Screens/LandingPage/Landingpage';
 
 
-const App = () =>{
-  <BrowserRouter>
+
+
+
+const App = () =>(
+  <>
+      <Header />
+      <main>
+        <Landingpage />
+      </main>
+      <Footer />
+
+  </>
+)
   
-  </BrowserRouter>
-}
+
 
 export default App;
