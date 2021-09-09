@@ -8,11 +8,6 @@ const VehicleActions = (props) => {
     const history = useHistory();
     const vehicle = props.vehicle;
 
-    // Function for redirect
-    const handleClick = (path) => {
-        history.push(path);
-    }
-
     // Function for delete vehicle
     const deleteVehicle = () => {
         Swal.fire({
@@ -39,6 +34,11 @@ const VehicleActions = (props) => {
                     })
             }
         })
+    }
+
+    // Function for redirect
+    const handleClick = (path) => {
+        history.push(path);
     }
 
 

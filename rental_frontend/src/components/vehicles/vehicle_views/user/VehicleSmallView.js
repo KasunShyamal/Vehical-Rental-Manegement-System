@@ -14,6 +14,7 @@ const PackageSmallView = (props) => {
     return (
 
         <div className={`col-xs-12 col-sm-6 col-md-${count}`}>
+            
             <div class="card">
                 <img src={vehicle.imageURL} class="card-img-top" alt={vehicle.brand} />
                 <div class="card-body">

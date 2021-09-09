@@ -6,11 +6,12 @@ import {
 } from "react-router-dom";
 
 import CategoriesContainer from '../categories/CategoriesContainer';
-
+import UpdateCategory from '../categories/UpdateCategory';
 import AdminVehicleManager from '../vehicles/AdminVehicleManager';
 
 const AdminContainer = () => {
     return (<React.Fragment>
+      
         <div className="container">
             <Router>
                 <Switch>
@@ -20,6 +21,12 @@ const AdminContainer = () => {
                     <Route path="/admin/categories">
                         <CategoriesContainer />
                     </Route>
+                    <Route
+                    path="/UpdateCategory/:id"
+                    component={(props) => (
+                        <UpdateCategory {...props} key={window.location.pathname} />
+                    )}
+                />
                     <Route exact path="/">
 
                     </Route>
