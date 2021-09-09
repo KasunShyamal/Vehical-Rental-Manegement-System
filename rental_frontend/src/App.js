@@ -17,12 +17,11 @@ function App() {
     <React.Fragment>
       <Router>
       <Header/>
-        <AdminNavbar />
+      <AdminNavbar />
         <Switch>
           <Route path="/admin">
             <AdminContainer />
           </Route>
-       
           <Route
             path="/vehicles/:id"
             component={(props) => (
