@@ -27,6 +27,12 @@ connection.once("open", () => {
     console.log("MongoDb connection success!");
 })
 
+//import route
+const staffRouter = require("./routes/staffRoute.js");
+
+//route middleware
+app.use("/Staff",staffRouter);
+
 app.listen(PORT, () =>{
     console.log(`Server is up and running in port no : ${PORT}`);
 })

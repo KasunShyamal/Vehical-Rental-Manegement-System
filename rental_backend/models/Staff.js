@@ -7,12 +7,13 @@ const staffSchema = new Schema({
         required: true
     },
     DoB : {
-        type : date,
+        type : String,
         required: true
     },
     NIC : {
         type : String,
         required : true,
+        
     },
     Address : {
         type : String,
@@ -20,13 +21,11 @@ const staffSchema = new Schema({
     },
     Email : {
         type : String,
-        required : true,
-        unique : true,
+        required : true,  
     },
     Phone : {
         type : Number,
         required : true,
-        unique : true,
     },
     gender : {
         type : String,
@@ -45,7 +44,7 @@ const staffSchema = new Schema({
         required : true,
     },
     HireDate : {
-        type : Date,
+        type : String,
         required : true,
     },
     UserName : {
@@ -60,6 +59,6 @@ const staffSchema = new Schema({
 
 })
 
-const Student = mongoose.model("Staff",staffSchema );
+const Staff = mongoose.model("Staff",staffSchema );
 
 module.exports = Staff;
