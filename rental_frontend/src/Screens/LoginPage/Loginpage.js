@@ -4,6 +4,7 @@ import { Form, Button, Row, Col } from 'react-bootstrap'
 import {Link} from "react-router-dom"
 import MainScreen from '../../components/MainScreen'
 import './Loginpage.css' 
+import axios from "axios"
 
 const Loginpage = () => {
 
@@ -12,10 +13,46 @@ const Loginpage = () => {
     const [error, setError] = useState(false)
     const [loding, setLoding] = useState(false)
 
-    const submitHandler =(e) =>{
+    const submitHandler = async (e) =>{
         e.preventDefault()
-        console.log(email, password);
-    }
+        
+        try {
+            const config = {
+                headers: {
+                   "Content-type":"application/json" 
+                }
+            }
+
+            setLoding(true)
+            let reqBody ={
+                Email:email,
+                Password:password 
+            }
+            let  data = await axios.post('http://localhost:3001/api/customer/login',reqBody).
+            then(function(response){
+                console.log(response, 'abcdefgh');
+                return response;
+            });
+
+            /*const { data } = await axios.post('/api/customer/login',
+            {
+                email,
+                password,
+            },
+            config
+            );*/
+            
+        
+            console.log(data);
+            localStorage.setItem('userInfo',JSON.stringify(data));
+            setLoding(false)
+
+        }
+        catch(error){
+            setError(error.response.data.message);
+        };
+      
+    };
 
     return (
         <MainScreen title='LOGIN'>
