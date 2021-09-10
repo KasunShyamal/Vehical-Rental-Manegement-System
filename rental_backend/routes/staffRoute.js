@@ -28,15 +28,15 @@ router.route("/").get((req,res) => {
 
 
 //edit,update profile
-router.route("/update/:nic").put(async(req,res) => {
-    let userID = req.params.nic;
+router.route("/update/:id").put(async(req,res) => {
+    let userID = req.params.id;
     const {name, DoB, NIC, Address, Email, Phone, gender, ID, JobTitle, Experience, HireDate, UserName, Password} = req.body;
 //$set:req.body; == line 33
     const updateStaff = {
         name, DoB, NIC, Address, Email, Phone, gender, ID, JobTitle, Experience, HireDate, UserName, Password
     }
 
-    const update = await Staff.findOneAndUpdate(NIC, updateStaff)
+    const update = await Staff.findByIdAndUpdate(userID, updateStaff)
     .then(() => {
         res.status(200).send({status: "Staff member updated"})
     }).catch((err) => {
@@ -47,10 +47,10 @@ router.route("/update/:nic").put(async(req,res) => {
 
 
 //delete profile
-router.route("/delete/:nic").delete(async (req,res) => {
-    let userID = req.params.nic;
+router.route("/delete/:id").delete(async (req,res) => {
+    let userID = req.params.id;
 
-    await Staff.findOneAndDelete(NIC)
+    await Staff.findByIdAndDelete(userID)
     .then(()=> {
         res.status(200).send({status: "Staff member deleted"});
     }).catch((err)=> {
@@ -60,9 +60,9 @@ router.route("/delete/:nic").delete(async (req,res) => {
 })
 
 //search a staff member's details
-router.route("/get/:nic").get(async (req, res) => {
-    let userID = req.params.nic;
-    const user = await Staff.findOne(NIC)
+router.route("/get/:id").get(async (req, res) => {
+    let userID = req.params.id;
+    const user = await Staff.findById(userID)
     .then((Staff) => {
         res.status(200).send({status: "Staff member fetched",Staff})
     }).catch((err) => {
