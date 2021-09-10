@@ -5,6 +5,7 @@ import Landingpage from './Screens/LandingPage/Landingpage';
 import { BrowserRouter, Route } from "react-router-dom"
 import Registerpage from './Screens/Registerpage/Registerpage';
 import Loginpage from './Screens/LoginPage/Loginpage';
+import abc from './Screens/abc/abc';
 
 
 
@@ -17,6 +18,7 @@ const App = () =>(
         <Route path='/' component ={Landingpage} exact/>
         <Route path='/login' component ={Loginpage} exact/>
         <Route path='/register' component ={Registerpage} exact/>
+        <Route path='/abc' component={abc} exact />
       </main>
       <Footer />
 

@@ -6,7 +6,7 @@ import MainScreen from '../../components/MainScreen'
 import './Loginpage.css' 
 import axios from "axios"
 
-const Loginpage = () => {
+const Loginpage = (props) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -28,13 +28,17 @@ const Loginpage = () => {
                 Email:email,
                 Password:password 
             }
-            let  data = await axios.post('http://localhost:3001/api/customer/login',reqBody).
+            let  data = await axios.post('http://localhost:8092/api/customer/login',reqBody).
             then(function(response){
+                if(response.data.UserType == "customer"){
+                    props.history.push('/abc')
+
+                }
                 console.log(response, 'abcdefgh');
                 return response;
-            });
+            }); 
 
-            /*const { data } = await axios.post('/api/customer/login',
+            /*const { data } = await axios.post('http://localhost:8092/api/customer/login',
             {
                 email,
                 password,
