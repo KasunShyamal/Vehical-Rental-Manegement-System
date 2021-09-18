@@ -19,14 +19,14 @@ const Header = () => {
         <NavMenu>
      
           <NavLink to='/about' activeStyle>
-            About
+            home
           </NavLink>
           <NavLink to='/events' activeStyle>
-            Events
+            link
           </NavLink>
           <NavLink to='/blogs' activeStyle>
  
-            Blogs
+            user
           </NavLink>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
