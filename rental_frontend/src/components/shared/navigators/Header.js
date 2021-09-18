@@ -1,11 +1,46 @@
 import React from 'react'
-import{ Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 
+import {
+  Nav,
+  NavLink,
+  NavMenu,
+  NavBtn,
+
+} from './NavbarElements';
+ 
 const Header = () => {
     return (
-        
+     <div>
+   
+      <Nav>
+      <div className="active-pink-3 active-pink-4 mb-4">
+        <input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+      </div>
+        <NavMenu>
+     
+          <NavLink to='/about' activeStyle>
+            About
+          </NavLink>
+          <NavLink to='/events' activeStyle>
+            Events
+          </NavLink>
+          <NavLink to='/blogs' activeStyle>
+ 
+            Blogs
+          </NavLink>
+          {/* Second Nav */}
+          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
+        </NavMenu>
+        <NavBtn>
+          <NavLink to='/signin'>Sign In</NavLink>
+        </NavBtn>
+      </Nav>
+  
+      </div>
+      
+   /* <div>    
     <Navbar bg="primary" expand="lg" variant="dark">
-  <Container>
+    <Container>
     <Navbar.Brand href="/">Route Master</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
@@ -16,7 +51,6 @@ const Header = () => {
         placeholder="Search"
         className="mr-sm-2" 
       />
-    
     </Form>
     </Nav>
       <Nav className="m-auto">
@@ -33,8 +67,9 @@ const Header = () => {
     </Navbar.Collapse>
   </Container>
 </Navbar>
+</div>*/
         
     )
 }
 
-export default Header
+export default Header;

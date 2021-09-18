@@ -134,7 +134,7 @@ class CreateVehicle extends Component {
             
             <CreateContainer>
             <div  styles={{ backgroundImage:`url(${dummy})`,backgroundRepeat: 'no-repeat',
-  width:'250px'  }}>  
+  width:'250px'  ,height:'1230px'}}>  
             <div className="container">
               <div className="card mb-3 mt-5">
                     <div className="row g-0">

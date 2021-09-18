@@ -36,7 +36,7 @@ class AllVehiclesForUser extends Component {
                    
                         {
                             this.state.vehicles.map(vehicle => {
-                                return <VehicleSmallView vehicle={vehicle} count={4} />
+                                return <VehicleSmallView vehicle={vehicle} count={3} />
                             })
                         }
                     </React.Fragment><br/>

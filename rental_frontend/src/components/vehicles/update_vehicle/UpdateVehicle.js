@@ -286,7 +286,7 @@ color:white !important;
 }
 }
 .container{
-    background:  #f2f2f2;
+    background:gray;
     margin-top:30px;
     border: 1px solid  gray
 }

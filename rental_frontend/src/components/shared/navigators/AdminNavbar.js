@@ -16,7 +16,7 @@ const AdminNavbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
     
                 <ul className="navbar-nav mr-auto">
-                    <li onClick={() => handleClick("/")} className="nav-item active">
+                    <li onClick={() => handleClick("/users")} className="nav-item active">
                         <a className="nav-link" href="#">Home</a>
                     </li>
                     
@@ -38,13 +38,12 @@ const AdminNavbar = () => {
 
 export default AdminNavbar;
 //main navbar container
-const NavbarContainer = styled.div`
-  
+const NavbarContainer = styled.div` 
 background: black;
 .nav-link{
 color:white !important;
 &:hover{
-    background-image: linear-gradient(to right top, #3f7f85, #578e9a);
+    background-image: linear-gradient(to right top,  #666, gray);
 }
-}
+ 
 `;

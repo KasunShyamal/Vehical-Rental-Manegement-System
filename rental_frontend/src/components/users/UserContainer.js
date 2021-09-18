@@ -5,19 +5,19 @@ import {
     Route,
 } from "react-router-dom";
 
-import AllVehiclesContainer from './vehicle_views/admin/AllVehiclesContainer';
-import Header from '../shared/navigators/Header';
+import AllVehiclesContainer from '../vehicles/vehicle_views/user/AllVehiclesForUser';
+import Header from '../shared/navigators/Header'
 const  UserContainer= () => {
-    <Header/>
+  
     return (<React.Fragment>
-        <Router>
+     < Header/>
             <Switch>
-            
                 <Route path="/">
                     <AllVehiclesContainer />
                 </Route>
+                
             </Switch>
-        </Router>
+ 
     </React.Fragment>);
 }
 

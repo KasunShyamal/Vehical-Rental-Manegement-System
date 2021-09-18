@@ -63,8 +63,11 @@ class AllVehiclesContainer extends Component {
     render() {
         return (
 <SearchContainer>
+<br/>
+<h3 className={"text-secondary text-center mb-5"}>All Vehicle Details</h3>
             <div className="container-fluid mt-5">
                 <div className="row">
+                    
                     <nav class="navbar navbar-light bg-light">
                         <div class="container-fluid">
                             <div class="d-flex">
@@ -83,7 +86,7 @@ class AllVehiclesContainer extends Component {
                                     documentTitle={"All Packages"}
                                     onAfterPrint={() => { this.setState({ isGen: false }); }}
                                     trigger={() => {
-                                        return <button type="button" class="btn btn-primary"><i class="fa fa-home"></i>Generate PDF Now</button>
+                                        return <button type="button" class="btn btn-primary">Generate PDF Now</button>
                                     }}
                                     content={() => this.componentRef}
                                 />
@@ -93,9 +96,9 @@ class AllVehiclesContainer extends Component {
                             
                         </div>
                     }
-
+<br/><br/>
                     <div ref={el => (this.componentRef = el)}>
-                        <h3 className={"text-secondary text-center mb-5"}>All Vehicles</h3>
+                      
                         <div class="table-responsive">
                             <table class="table table-hover text-center">
                                 <thead className="table-dark">
@@ -140,7 +143,11 @@ class AllVehiclesContainer extends Component {
 
 export default withRouter(AllVehiclesContainer);
 const SearchContainer = styled.div`
-  
+.container{
+    background:gray;
+    margin-top:30px;
+    border: 1px solid  gray
+}
 .table{
 tr:nth-child(even){background-color: #f2f2f2;
 }
@@ -150,9 +157,7 @@ tr:hover {background-color: #ddd;
     th:nth-child{background-color:#ddd;};
 .nav-link{
 color:white !important;
-&:hover{
-    background-image: linear-gradient(to right top, #3f7f85, #578e9a, #6f9dad, #89acbf, #a2bbd0, #9eb7cb, #99b2c7, #95aec2, #7396a6, #527e89, #34666b, #194f4c);
-}
+
 .container-fluid{
     background-color: #ddd;
 }
@@ -163,6 +168,11 @@ table th,tr {
   }
  .btn{
       color:black;
+      border: 1px solid gray;
+      border-style: solid;
+      width:89%;
   }
-  
+  h3{
+    color:black;  
+  }
 `;

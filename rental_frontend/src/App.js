@@ -6,10 +6,11 @@ import {
 } from "react-router-dom";
 
 import AdminContainer from './components/admin/AdminContainer';
+import UserContainer from './components/users/UserContainer';
 import Footer from './components/shared/footer/Footer';
 import AllVehiclesForUser from './components/vehicles/vehicle_views/user/AllVehiclesForUser';
 import ViewMoreVehicle from './components/vehicles/vehicle_views/ViewMoreVehicle';
-import AdminNavbar from './components/shared/navigators/AdminNavbar';
+
 import Header from './components/shared/header/Header';
 function App() {
 
@@ -17,10 +18,13 @@ function App() {
     <React.Fragment>
       <Router>
       <Header/>
-      <AdminNavbar />
+  
         <Switch>
           <Route path="/admin">
             <AdminContainer />
+          </Route>
+          <Route path="/users">
+            <UserContainer/>
           </Route>
           <Route
             path="/vehicles/:id"
