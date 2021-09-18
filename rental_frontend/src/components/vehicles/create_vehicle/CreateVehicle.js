@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import axios from "axios";
+import styled from 'styled-components';
 import { Alert } from '../../../services/Alert';
 import vehicleValidations from '../../../validations/VehicleValidations';
 import dummy_image from "../../../assets/images/dummy_image.jpg";
-
+import dummy from "./back1.jpg";
 class CreateVehicle extends Component {
     constructor(props) {
         super(props);
@@ -130,8 +131,12 @@ class CreateVehicle extends Component {
 
     render() {
         return (
+            
+            <CreateContainer>
+            <div  styles={{ backgroundImage:`url(${dummy})`,backgroundRepeat: 'no-repeat',
+  width:'250px'  }}>  
             <div className="container">
-                <div className="card mb-3 mt-5">
+              <div className="card mb-3 mt-5">
                     <div className="row g-0">
                         <div className="col-md-7">
                             <img src={this.state.image ? this.state.image.preview : dummy_image} className="img-fluid rounded-start" alt="..." />
@@ -139,7 +144,7 @@ class CreateVehicle extends Component {
                         <div className="col-md-5 p-3">
                             <div className="card-body">
                                 <h4 className="card-title text-secondary mt-3">Create Vehicle</h4>
-                                <hr classNameName="mb-3" />
+                                <hr classNameName="" />
                                 <form onSubmit={(e) => this.submit(e)}>
                                     <div className="mb-3">
                                         <label for="brand" className="form-label">Vehicle Brand</label>
@@ -241,8 +246,37 @@ class CreateVehicle extends Component {
                     </div>
                 </div>
             </div>
+            </div>
+            </CreateContainer>
+         
         );
     }
 }
 
 export default withRouter(CreateVehicle);
+const CreateContainer = styled.div`
+  img{
+   
+  }
+  h4{
+    front-color: black
+  }
+height:90px;
+.nav-link{
+color:white !important;
+&:hover{
+    background-image: linear-gradient(to right top, #3f7f85, #578e9a, #6f9dad, #89acbf, #a2bbd0, #9eb7cb, #99b2c7, #95aec2, #7396a6, #527e89, #34666b, #194f4c);
+}
+}
+.container{
+    background:gray;
+    margin-top:70px;
+    border: 1px solid  gray;
+    height:1300px
+    width:1300px
+   
+}
+.imag{
+    background-image: url(../../../assets/images/dummy_image.jpg);
+  }
+`;

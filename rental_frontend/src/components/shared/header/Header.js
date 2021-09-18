@@ -1,12 +1,12 @@
 import React  from 'react';
 import styled, { withTheme } from 'styled-components';
-import logo from './logo.jpg';
+import logo from './logo2.png';
 const Header = ()=>{
     return(
     
       
         <MainContainer>
-          <img src={logo} alt="My logo"  style={{ height: 90, width: 90, borderColor: 'gray', borderWidth: 8,  marginBottom: 20 } }/>
+          <img src={logo} alt="My logo"  style={{ height: 100, width: 100, borderColor: 'gray', borderWidth: 8,  marginBottom: 20 } }/>
          <h2>  ROUTE MASTER VEHICLE RENTAL ...</h2>
         </MainContainer>
     )
@@ -17,18 +17,17 @@ export default Header;
     
 const MainContainer = styled.header`
   
-background-image: linear-gradient(to right top, #066666, #0b545b, #13424c, #17313b, #162128, #162128, #162128, #162128, #17313b, #13424c, #0b545b, #066666);
-  
-  height: 6rem;
+background-color:black;
+  width:100%;
+  height: 4.7rem;
   h2{
-    transform:translate(-50%,-40%);
+    transform:translate(-100%,-50%);
     color:white;
     text-shadow: 0 0 3px black, 0 0 5px black;
     font-weigth:9;
     position:absolute;
-    top:4%;
+    top:6%;
     font: 2rem 'AmstelvarAlpha', sans-serif;
-  font-style: oblique 23deg;
     left:50%;
   }
 `;

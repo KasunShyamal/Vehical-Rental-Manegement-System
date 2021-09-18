@@ -28,7 +28,7 @@ class ViewMoreVehicle extends Component {
                     this.state.vehicle ? <div class="card mb-3">
                         <div class="row g-0">
                             <div class="col-md-5">
-                                <img src={this.state.vehicle.imageURL} class="img-fluid rounded-start" alt="..." />
+                                <img src={this.state.vehicle.imageURL} class="img-fluid rounded-start" alt="..." style={{width:"100%"}} />
                             </div>
                             <div class="col-md-7">
                                 <div class="card-body px-5">

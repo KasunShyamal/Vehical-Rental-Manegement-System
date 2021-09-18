@@ -44,7 +44,7 @@ background: black;
 .nav-link{
 color:white !important;
 &:hover{
-    background-image: linear-gradient(to right top, #3f7f85, #578e9a, #6f9dad, #89acbf, #a2bbd0, #9eb7cb, #99b2c7, #95aec2, #7396a6, #527e89, #34666b, #194f4c);
+    background-image: linear-gradient(to right top, #3f7f85, #578e9a);
 }
 }
 `;

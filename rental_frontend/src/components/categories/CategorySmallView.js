@@ -51,7 +51,7 @@ const CategorySmallView = (props) => {
             </div>
             <div className="col-5">
             
-                <button  onClick={() => handleClick(`/admin/categories/UpdateCategory/${category._id}`)}className={"btn btn-success mb-3 btn-block"} style={styles.btnWidth}>Update</button>
+            <button onClick={() => handleClick(`/UpdateCategory/${category._id}`)} type="button" className={"btn btn-success mb-3 btn-block"} style={styles.btnWidth}>Update</button>
                 <button  onClick={deleteCategory}className={"btn btn-danger btn-block"} style={styles.btnWidth}>Delete</button>
             </div>
         </div>

@@ -33,6 +33,7 @@ class AllVehiclesForUser extends Component {
                 <div className="row">
                     <h3 className={"text-secondary text-center mb-5"}>All Vehicles</h3>
                     <React.Fragment>
+                   
                         {
                             this.state.vehicles.map(vehicle => {
                                 return <VehicleSmallView vehicle={vehicle} count={4} />

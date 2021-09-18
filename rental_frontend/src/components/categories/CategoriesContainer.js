@@ -3,7 +3,7 @@ import axios from "axios";
 import { Alert } from '../../services/Alert';
 
 import CategorySmallView from './CategorySmallView';
-
+import styled from 'styled-components';
 class CategoriesContainer extends Component {
     constructor(props) {
         super(props);
@@ -42,15 +42,20 @@ class CategoriesContainer extends Component {
         });
     }
 
-
+//component to return multiple elements.
+// Fragments let you group a list of children without adding extra nodes to the DOM.
     render() {
+        
         return <React.Fragment>
-            <div className={"container"}>
+         <CreateContainer>
+            <div className="container">
                 <div className="card p-5 mt-5">
                     <div className={"row"}>
-                        <div className={"col-xs-12 col-sm-7"}>
+                        <div className="col-xs-12 col-sm-7">
+                            
                             <h3 className={"text-secondary text-center"}>Create Category</h3>
                             <div class="mb-3">
+                          
                                 <label for="category" className="form-label">Category</label>
                                 <input
                                     className="form-control"
@@ -75,10 +80,35 @@ class CategoriesContainer extends Component {
                         </div>
                     </div>
                 </div>
+              
             </div>
-
+            </CreateContainer>
         </React.Fragment>
     }
 }
 
 export default CategoriesContainer;
+const CreateContainer = styled.div`
+
+.container{
+    background:#f9fcfc;
+    margin-top:30px;
+    border: 1px solid  gray
+}
+.container{
+    background:gray;
+    margin-top:70px;
+    border: 1px solid  gray;
+    height:1300px
+    width:1300px
+   
+}
+.col-xs-12 col-sm-7{
+    background:gray;
+    margin-top:70px;
+    border: 1px solid  gray;
+}
+#root{
+    background-color:gray; 
+}
+`;

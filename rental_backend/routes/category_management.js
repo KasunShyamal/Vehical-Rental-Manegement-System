@@ -10,7 +10,14 @@ router.get("/", async (req, res) => {
         .catch(err => res.status(400).send('Error: ' + err))
 
 });
+/*Router for get Vehicle by Id*/
+router.get("/:id", async (req, res) => {
 
+    await Category.findById(req.params.id)
+        .then((category) => res.send(category))
+        .catch(err => res.status(400).send("Error : " + err))
+
+});
 /*Router for create category*/
 router.post('/AddCategory', async (req, res) => {
 
@@ -43,5 +50,21 @@ router.delete("/DeleteCategory/:id", async (req, res) => {
         .catch(err => res.status(400).send("Error : " + err));
 
 });
+/*Router for update category*/
+router.put("/UpdateCategory/:id", async (req, res) => {
+
+    console.log(req.body);
+    await Category.findById(req.params.id)
+        .then(category => {
+            category.category = req.body.category;
+
+            category.save()
+                .then(() => res.send("Category Updated Successfully!"))
+                .catch(err => res.status(400).send('Error: ' + err));
+        })
+        .catch(err => res.status(400).send("Error : " + err));
+
+});
+
 
 module.exports = router;
