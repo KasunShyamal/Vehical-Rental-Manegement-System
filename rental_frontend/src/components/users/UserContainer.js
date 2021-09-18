@@ -14,10 +14,8 @@ const  UserContainer= () => {
             <Switch>
                 <Route path="/">
                     <AllVehiclesContainer />
-                </Route>
-                
+                </Route>    
             </Switch>
- 
     </React.Fragment>);
 }
 

@@ -9,7 +9,7 @@ import CategoriesContainer from '../categories/CategoriesContainer';
 import UpdateCategory from '../categories/UpdateCategory';
 import AdminVehicleManager from '../vehicles/AdminVehicleManager';
 import AdminNavbar from '../shared/navigators/AdminNavbar';
-
+import Header from '../shared/header/Header';
 const AdminContainer = () => {
     return (<React.Fragment>
       <AdminNavbar />
@@ -22,7 +22,12 @@ const AdminContainer = () => {
                     <Route path="/admin/categories">
                         <CategoriesContainer />
                     </Route>
-                
+                    <Route
+                    path="/UpdateCategory/:id"
+                    component={(props) => (
+                        <UpdateCategory {...props} key={window.location.pathname} />
+                    )}
+                />
                     <Route exact path="/">
 
                     </Route>
