@@ -38,7 +38,7 @@ const userSchema = new schema({
 
     UserType : {
         type : String,
-        required : true
+        //required : true
     },
 
     BussinessType : {

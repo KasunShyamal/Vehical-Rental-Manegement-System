@@ -1,7 +1,8 @@
 
 import React from 'react'
-import { Container, Row, Button } from 'react-bootstrap'
+import { Container, Row, Button, Image } from 'react-bootstrap'
 import "./LandingPage.css"
+ 
 
 
 const Landingpage = () => {
@@ -23,6 +24,7 @@ const Landingpage = () => {
                         <a href='/register'>
                             <Button size='lg' className='landingbutton' variant="outline-primary">Sign Up</Button>
                         </a>
+                        
                     </dev>
                 </dev>
             </Row>

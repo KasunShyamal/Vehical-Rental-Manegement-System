@@ -5,13 +5,17 @@ import {Link} from "react-router-dom"
 import MainScreen from '../../components/MainScreen'
 import './Loginpage.css' 
 import axios from "axios"
+import Loading from '../../components/Loading'
+import Error from '../../components/Error'
 
 const Loginpage = (props) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
-    const [loding, setLoding] = useState(false)
+    const [loading, setLoading] = useState(false)
+
+    
 
     const submitHandler = async (e) =>{
         e.preventDefault()
@@ -23,18 +27,22 @@ const Loginpage = (props) => {
                 }
             }
 
-            setLoding(true)
+            setLoading(true)
             let reqBody ={
                 Email:email,
                 Password:password 
             }
             let  data = await axios.post('http://localhost:8092/api/customer/login',reqBody).
             then(function(response){
-                if(response.data.UserType == "customer"){
-                    props.history.push('/abc')
-
-                }
-                console.log(response, 'abcdefgh');
+                        if(response.data.UserType == "customer"){
+                            props.history.push('/abc')
+                        }
+                        else if(response.data.UserType == "admin"){
+                            props.history.push('/AdminHome')
+                        }
+                        else if(response.data.UserType == "partner") {
+                            props.history.push('/PartnerHome')
+                        }
                 return response;
             }); 
 
@@ -49,18 +57,20 @@ const Loginpage = (props) => {
         
             console.log(data);
             localStorage.setItem('userInfo',JSON.stringify(data));
-            setLoding(false)
+            setLoading(false)
 
         }
-        catch(error){
-            setError(error.response.data.message);
-        };
+        catch(error) {
+            setError(error.response.data.message); setLoading(false);
+        }
       
     };
 
     return (
         <MainScreen title='LOGIN'>
         <div className='loginContainer'>
+            {error && <Error variant="danger">{error}</Error>}
+            {loading && <Loading />}
         <Form onSubmit={submitHandler}>
             <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>

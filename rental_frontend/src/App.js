@@ -6,6 +6,10 @@ import { BrowserRouter, Route } from "react-router-dom"
 import Registerpage from './Screens/Registerpage/Registerpage';
 import Loginpage from './Screens/LoginPage/Loginpage';
 import abc from './Screens/abc/abc';
+import PartnerRegister from './Screens/PartnerRegister/PartnerRegister';
+import AdminHome from './Screens/AdminHome/AdminHome';
+import PartnerHome from './Screens/PartnerHome/PartnerHome';
+import View_de from './Screens/View_de/View_de';
 
 
 
@@ -18,7 +22,11 @@ const App = () =>(
         <Route path='/' component ={Landingpage} exact/>
         <Route path='/login' component ={Loginpage} exact/>
         <Route path='/register' component ={Registerpage} exact/>
+        <Route path='/partnerreg' component={PartnerRegister} exact/>
         <Route path='/abc' component={abc} exact />
+        <Route path='/AdminHome' component={AdminHome} exact />
+        <Route path='/PartnerHome' component={PartnerHome} exact />
+        <Route path='/View_de' component={View_de} exact/>
       </main>
       <Footer />
 
