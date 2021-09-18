@@ -9,7 +9,7 @@ import CategoriesContainer from '../categories/CategoriesContainer';
 import UpdateCategory from '../categories/UpdateCategory';
 import AdminVehicleManager from '../vehicles/AdminVehicleManager';
 import AdminNavbar from '../shared/navigators/AdminNavbar';
-import Header from '../shared/header/Header';
+
 const AdminContainer = () => {
     return (<React.Fragment>
       <AdminNavbar />
