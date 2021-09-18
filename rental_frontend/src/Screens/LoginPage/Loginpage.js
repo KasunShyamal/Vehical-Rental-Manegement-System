@@ -1,70 +1,47 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useState} from "react"
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import {Link} from "react-router-dom"
 import MainScreen from '../../components/MainScreen'
 import './Loginpage.css' 
-import axios from "axios"
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
+import { useDispatch, useSelector } from 'react-redux'
+import { login } from '../../actions/userActions'
 
 const Loginpage = (props) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [error, setError] = useState(false)
-    const [loading, setLoading] = useState(false)
-
+    // to call user actions
+    const dispatch = useDispatch();
     
+    //access state
+
+    const userLogin = useSelector(state => state.userLogin);
+    const {loading,error, userInfo} = userLogin;
+
+    useEffect(() =>{
+        if(userInfo){
+            if(userInfo.data.UserType == "customer"){
+                props.history.push('/abc')
+            }
+            else if(userInfo.data.UserType == "admin"){
+                props.history.push('/AdminHome')
+            }
+            else if(userInfo.data.UserType == "partner") {
+                props.history.push('/PartnerHome')
+            }
+        }
+    }, [userInfo])
 
     const submitHandler = async (e) =>{
         e.preventDefault()
-        
-        try {
-            const config = {
-                headers: {
-                   "Content-type":"application/json" 
-                }
-            }
-
-            setLoading(true)
-            let reqBody ={
-                Email:email,
-                Password:password 
-            }
-            let  data = await axios.post('http://localhost:8092/api/customer/login',reqBody).
-            then(function(response){
-                        if(response.data.UserType == "customer"){
-                            props.history.push('/abc')
-                        }
-                        else if(response.data.UserType == "admin"){
-                            props.history.push('/AdminHome')
-                        }
-                        else if(response.data.UserType == "partner") {
-                            props.history.push('/PartnerHome')
-                        }
-                return response;
-            }); 
-
-            /*const { data } = await axios.post('http://localhost:8092/api/customer/login',
-            {
-                email,
-                password,
-            },
-            config
-            );*/
-            
-        
-            console.log(data);
-            localStorage.setItem('userInfo',JSON.stringify(data));
-            setLoading(false)
-
-        }
-        catch(error) {
-            setError(error.response.data.message); setLoading(false);
-        }
-      
-    };
+       
+     //call action
+     
+     dispatch(login(email,password));
+    }
 
     return (
         <MainScreen title='LOGIN'>

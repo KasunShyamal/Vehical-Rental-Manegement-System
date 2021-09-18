@@ -1,10 +1,11 @@
-import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Button, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Error from '../../components/Error'
 import Loading from '../../components/Loading'
 import MainScreen from '../../components/MainScreen'
+import { useDispatch, useSelector } from 'react-redux'
+import { register } from '../../actions/userActions'
 
 const Registerpage = (props) => {
 
@@ -20,8 +21,26 @@ const Registerpage = (props) => {
     const [Password, setPassword] = useState("")
     const [message, setMessage] = useState(null)
     const [picMessage, setPicMessage] = useState(null)
-    const [error, setError] =useState(false)
-    const [loading, setLoading] =useState(false)
+    
+    const  dispatch = useDispatch();
+
+    const userRegister = useSelector(state => state.userRegister);
+    const {loading, error, userInfo} = userRegister;
+
+    useEffect(() =>{
+        if(userInfo){
+            if(userInfo.data.UserType == "customer"){
+                props.history.push('/abc')
+            }
+            else if(userInfo.data.UserType == "admin"){
+                props.history.push('/AdminHome')
+            }
+            else if(userInfo.data.UserType == "partner") {
+                props.history.push('/PartnerHome')
+            }
+        }
+    }, [userInfo])
+
     
    const submitHandler = async (e) => {
         e.preventDefault();
@@ -30,53 +49,10 @@ const Registerpage = (props) => {
             setMessage("Passwords Do Not Match");    
         }
         else{
-            setMessage(null)
+            dispatch(register(Name, NIC, Email, Password,Phone, Address, UserType));
+            
 
-            try{
-                const config = {
-                    headers: {
-                       "Content-type":"application/json" 
-                    },
-                };
-
-                setLoading(true);
-                let reqBody ={
-                    Name:Name,
-                    NIC:NIC,
-                    Email:Email,
-                    Password:Password,
-                    Phone:Phone,
-                    Address:Address,
-                    UserType:UserType
-
-                }
-                let  data = await axios.post('http://localhost:8092/api/customer',reqBody).
-                then(function(response){
-                            if(response.data.UserType == "customer"){
-                                     props.history.push('/abc')        
-                             }
-                             else if(response.data.UserType == "admin"){
-                                props.history.push('/AdminHome')
-                            }
-                            else if(response.data.UserType == "partner") {
-                                props.history.push('/PartnerHome')
-                            }
-                    return response;
-                });
-
-                
-
-                console.log(onchange);
-                localStorage.setItem('userInfo',JSON.stringify(data));
-                setLoading(false)
-            }
-            catch(error){
-                setError(error.response.data.message); 
-            }
-
-        }
-
-        console.log(Email);
+        }  
     };
 
         

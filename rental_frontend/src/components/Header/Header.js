@@ -1,8 +1,26 @@
 
 import React from 'react'
 import{ Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../../actions/userActions'
 
-const Header = () => {
+const Header = ( ) => {
+  const history = useHistory();
+
+   const dispatch = useDispatch();
+
+   const userLogin = useSelector(state => state.userLogin);
+
+   const { userInfo } = userLogin;
+
+  const logoutHandler = () => {
+    dispatch(logout())
+    history.push('/')
+  }
+
+
+
     return (
         
     <Navbar bg="primary" expand="lg" variant="dark">
@@ -26,7 +44,9 @@ const Header = () => {
         <NavDropdown title="User" id="basic-nav-dropdown">
           <NavDropdown.Item href="/">My Profile</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="/">Log Out</NavDropdown.Item>
+          <NavDropdown.Item 
+            onClick={ logoutHandler }
+          >Log Out</NavDropdown.Item>
           
         </NavDropdown>
       </Nav>
