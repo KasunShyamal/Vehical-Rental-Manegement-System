@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ServiceSchema = new Schema({
+const servicesSchema = new Schema({
 
+    vehicleNo : {
+        type : String,
+        required: true
+    },
     dos : {
         type : String,
         required: true
@@ -22,8 +26,8 @@ const ServiceSchema = new Schema({
   
 
 
-})
+});
 
-const Service = mongoose.model("Service",ServiceSchema );
+const services = mongoose.model("services",servicesSchema );
 
-module.exports = Service;
+module.exports = services;

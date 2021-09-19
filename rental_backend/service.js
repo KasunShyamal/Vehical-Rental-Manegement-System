@@ -27,6 +27,12 @@ connection.once("open", () => {
     console.log("MongoDb connection success!");
 })
 
+const servicesRouter = require("./routes/Services.js");
+
+app.use("./services", servicesRouter);
+
+
+
 app.listen(PORT, () =>{
     console.log(`Server is up and running in port no : ${PORT}`);
 })
