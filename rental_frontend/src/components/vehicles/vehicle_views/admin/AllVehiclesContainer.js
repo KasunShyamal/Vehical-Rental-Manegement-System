@@ -5,6 +5,9 @@ import ReactToPrint from 'react-to-print';
 import styled from 'styled-components';
 import VehicleActions from './VehicleActions';
 import {  MDBIcon } from "mdbreact";
+import  reports from './report.png'
+import  cancel from './cancel (2).png'
+
 const styles = {
     paperContainer: {
         height: 1356,
@@ -86,11 +89,15 @@ class AllVehiclesContainer extends Component {
                                     documentTitle={"All Packages"}
                                     onAfterPrint={() => { this.setState({ isGen: false }); }}
                                     trigger={() => {
-                                        return <button type="button" class="btn btn-primary">Generate PDF Now</button>
+                                        return <button type="button" class="btn btn-primary">Generate PDF Now
+                        
+                                        </button>
                                     }}
                                     content={() => this.componentRef}
                                 />
-                                <button onClick={() => { this.setState({ isGen: false }); }} type="button" class="btn btn-danger m-2">Cancel</button>
+                                <button onClick={() => { this.setState({ isGen: false }); }} type="button" class="btn btn-danger m-2">Cancel
+                                <img src={cancel} alt="My logo"  style={{ height: 25, width: 25, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
+                                </button>
                             </div>
                         </div> : <div className="row text-end">
                             
@@ -131,7 +138,9 @@ class AllVehiclesContainer extends Component {
                     <div className="row text-end">  
                     <div className="col">
               
-                               <button type="button" onClick={() => { this.setState({ isGen: true }); }} class="btn btn-outline-secondary">Genrate Report</button>
+                               <button type="button" onClick={() => { this.setState({ isGen: true }); }} class="btn btn-outline-secondary">Genrate Report
+                               <img src={reports} alt="My logo"  style={{ height: 30, width: 30, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
+                               </button>
                            </div>
                            </div>
                 </div>

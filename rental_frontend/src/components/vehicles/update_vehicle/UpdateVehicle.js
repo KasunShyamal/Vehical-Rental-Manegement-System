@@ -161,7 +161,7 @@ class UpdateVehicle extends Component {
                         <div className="col-md-5 p-3">
                             <div className="card-body">
                                 <h4 className="card-title text-secondary mt-3">Update Vehicle</h4>
-                                <hr classNameName="mb-3" />
+                                <hr classNameName="" />
                                 <form onSubmit={(e) => this.submit(e)}>
                                     <div className="mb-3">
                                         <label for="brand" className="form-label">Vehicle Brand</label>
@@ -290,5 +290,14 @@ color:white !important;
     margin-top:30px;
     border: 1px solid  gray
 }
-
+hr{
+    height: 10px;
+    border: 1;
+    box-shadow: inset 0 9px 9px -3px rgba(11, 99, 184, 0.8);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    }
 `;

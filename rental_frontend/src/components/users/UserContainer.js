@@ -7,10 +7,11 @@ import {
 
 import AllVehiclesContainer from '../vehicles/vehicle_views/user/AllVehiclesForUser';
 import Header from '../shared/navigators/Header'
+import AdminNavbar from '../shared/navigators/AdminNavbar';
 const  UserContainer= () => {
   
     return (<React.Fragment>
-     < Header/>
+     
             <Switch>
                 <Route path="/">
                     <AllVehiclesContainer />

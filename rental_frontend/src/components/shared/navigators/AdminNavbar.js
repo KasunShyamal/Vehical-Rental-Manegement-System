@@ -43,7 +43,11 @@ background: black;
 .nav-link{
 color:white !important;
 &:hover{
-    background-image: linear-gradient(to right top,  #666, gray);
+    background-image: linear-gradient(to right top, black, black);
+    height: 30px;  /* this doesn't work */
+   
 }
- 
+ ul{
+     margin-left="67%"
+ }
 `;

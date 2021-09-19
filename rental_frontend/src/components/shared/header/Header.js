@@ -1,13 +1,16 @@
 import React  from 'react';
 import styled, { withTheme } from 'styled-components';
-import logo from './logo2.png';
+import logo from './logo7.png';
 const Header = ()=>{
     return(
     
       
         <MainContainer>
-          <img src={logo} alt="My logo"  style={{ height: 100, width: 100, borderColor: 'gray', borderWidth: 8,  marginBottom: 20 } }/>
-         <h3>  ROUTE MASTER VEHICLE RENTAL ...</h3>
+          <img src={logo} alt="My logo"  style={{ height: 70, width: 70, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
+         <h3>ROUTE MASTER VEHICLE RENTAL ...</h3>
+         <h6>Call now</h6> 
+         <h6>011-23456300</h6>
+       
         </MainContainer>
     )
     
@@ -19,15 +22,26 @@ const MainContainer = styled.header`
   
 background-color:black;
   width:100%;
-  height: 6rem;
+  height: 4rem;
   h3{
-    transform:translate(-90%,-50%);
-    color:#E9D4D4;
-    text-shadow: 0 0 3px black, 0 0 5px black;
+    transform:translate(-140%,-50%);
+    color:#66a3ff;
+    text-shadow: 0 0 1px white, 0 0 1px black;
     font-weigth:9;
     position:absolute;
     top:6%;
-    font: 2rem 'AmstelvarAlpha', sans-serif;
+    font: 2rem Stencil Std, fantasy;
     left:50%;
+  }
+ 
+  h6{
+    transform:translate(92%,-340%);
+    color:#66a3ff;
+   
+  }
+  h7{
+  
+    color:#1a75ff;
+    transform:translate(79%,-340%);
   }
 `;
