@@ -1,27 +1,44 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Card, Button, Badge, Accordion,  } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { cusList } from '../../actions/viewDetailsActions'
 import MainScreen from '../../components/MainScreen'
-import temp from '../../components/Temp.names/temp'
+import Loading from '../../components/Loading'
+import Error from '../../components/Error'
+
 
 const View_de = () => {
+    const  dispatch = useDispatch();
+
+    const customerList = useSelector(state => state.customerList)
+    const{loading, cusInfo, error} = customerList;
 
     const deleteHandler = (id) =>{
         if(window.confirm("Are You Sure")){
 
         }
-    }
+    };
+
+    useEffect(() => {
+        dispatch(cusList());
+    }, [dispatch]);
 
 
     return (
        <MainScreen title='View Your Customers'>
+           {console.log(cusInfo)}
            <Link to = "#">
            <Button>View My Partners</Button>
            </Link><hr />
-                {
-                   temp.map(temp => (
-                <Accordion>
-                    <Card Style={{margin:10}}>
+            {error && <Error variant="danger">{error}</Error>}
+           {loading && <Loading/>}
+
+             {cusInfo && cusInfo.length>0 ? 
+                cusInfo.map((customer) => (
+
+                <Accordion >
+                    <Card Style={{margin:10}} key={customer._id}>
                     <Card.Header style={{display: "flex"}}>
                         <span
                         style={{
@@ -32,14 +49,11 @@ const View_de = () => {
                             alignSelf: "center",
                             fontSize: 18,
                         }}>
-                            
-                                {temp.Name}
-                               
-                            
+                          {customer.Name}
                         </span> 
                         <div>
                             <Button variant="danger" className="mx-2"
-                                     onClick={() => deleteHandler(temp._id)}>
+                                     onClick={() => deleteHandler()}>
                                  Remove 
                             </Button>
                         </div>
@@ -48,25 +62,21 @@ const View_de = () => {
                     
                     <Card.Body>
                         <Badge bg="success">
-                            NIc No : {temp.NIC}
+                            NIc No : {customer.NIC}
                         </Badge>
                     <blockquote className="blockquote mb-0">
                         <p>
-                            {temp.content}<br /> 
-                            {temp.category}
+                          Emain Address: {customer.Email} <br />
+                          Address: {customer.Address} <br/>
+                          Mobile Number: {customer.Phone} <br/>
+                          
                         </p>
 
                     </blockquote>
                     </Card.Body>
                    
                 </Card>
-                </Accordion>
-                   ))
-
-                }
-
-
-           
+                </Accordion>)): null }
 
        </MainScreen>
     )

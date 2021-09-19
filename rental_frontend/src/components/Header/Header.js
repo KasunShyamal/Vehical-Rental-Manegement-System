@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import{ Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,7 +19,7 @@ const Header = ( ) => {
     history.push('/')
   }
 
-
+useEffect(() => {}, [userInfo])
 
     return (
         
@@ -39,16 +39,19 @@ const Header = ( ) => {
     </Form>
     </Nav>
       <Nav className="m-auto">
-        <Nav.Link href="/">Home</Nav.Link>
+        {userInfo ? (<> 
+          <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/">Link</Nav.Link>
-        <NavDropdown title="User" id="basic-nav-dropdown">
-          <NavDropdown.Item href="/">My Profile</NavDropdown.Item>
+        <NavDropdown title= {userInfo?.data.Name} id="basic-nav-dropdown">
+          <NavDropdown.Item href="">My Profile</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item 
             onClick={ logoutHandler }
           >Log Out</NavDropdown.Item>
           
         </NavDropdown>
+        </> ): null }
+        
       </Nav>
    
     </Navbar.Collapse>

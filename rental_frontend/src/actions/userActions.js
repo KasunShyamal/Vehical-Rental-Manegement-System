@@ -5,9 +5,12 @@ import {
     USER_LOGOUT, 
     USER_REGISTER_FAIL, 
     USER_REGISTER_REQUEST, 
-    USER_REGISTER_SUCCESS } from "../constants/userConstants"
+    USER_REGISTER_SUCCESS,
+    USER_UPDATE_REQUEST,
+    USER_UPDATE_SUCCESS,
+    USER_UPDATE_FAIL }  from "../constants/userConstants"
 import axios from 'axios'
-
+//actions for user login
 export const login =(email, password) => async (dispatch) =>{
  
 try {
@@ -63,10 +66,10 @@ try {
         dispatch({ type : USER_LOGOUT});
     }
 
-
-export const register = (Name, NIC, Email, Password,Phone, Address, UserType) => async (dispatch) =>{
+//actions for user register
+export const register = (Name, NIC, Email, Password,Phone, Address, UserType, pic) => async (dispatch) =>{
     try{
-        dispatch({type: USER_REGISTER_REQUEST});
+        dispatch({ type : USER_REGISTER_REQUEST});
         const config = {
             headers: {
                "Content-type":"application/json" 
@@ -100,10 +103,51 @@ export const register = (Name, NIC, Email, Password,Phone, Address, UserType) =>
         dispatch({
             type: USER_REGISTER_FAIL,
             payload:
-                error.response && error.response.data.message?
-                error.response.data.message:
-                error.message,
+            error.response && error.response.data.message?
+            error.data.response.message:
+            error.message,
         }) 
     }
 
 }
+
+// actions for user profile update
+export const updateUserProfile = (user) => async (dispatch, getState) => {
+    try {
+        dispatch({type: USER_UPDATE_REQUEST});
+
+        const {
+            userLogin: { userInfo},
+
+        } = getState();
+//passsing data and token
+        const config = {
+            headers:{
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${userInfo.token}`,
+            }
+        };
+        let  data = await axios.post('http://localhost:8092/api/customer/profile', user, config).
+        then(function(response){
+                    
+            return response;
+        });
+
+        dispatch({ type : USER_UPDATE_SUCCESS, payload: data });
+        dispatch({ type:USER_LOGIN_SUCCESS, payload: data });
+
+        localStorage.setItem("userInfo", JSON.stringify(data));
+
+
+    } catch (error) {
+        dispatch({
+            type: USER_UPDATE_FAIL,
+            payload:
+            error.response && error.response.data.message?
+            error.response.data.message:
+            error.message,
+        });
+    }
+};
+
+

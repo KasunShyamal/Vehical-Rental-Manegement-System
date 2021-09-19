@@ -1,12 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from  "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { userLoginReducer, userRegisterReducer } from './reducers/userRedusers';
+import { userLoginReducer, userRegisterReducer, userUpdateReducer } from './reducers/userRedusers';
+import { viewDetailsReducer } from './reducers/viewDetailsReducers';
 
 const reducer = combineReducers({
     //this will contain the reducer
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
+    customerList:viewDetailsReducer,
+    userUpdate:userUpdateReducer,
 })
 
 //pass the all user data into a object

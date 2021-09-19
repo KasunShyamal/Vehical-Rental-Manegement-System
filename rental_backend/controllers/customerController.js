@@ -68,10 +68,71 @@ const registerUser = asyncHandler(async(req, res) => {
     }
 
     else{
-        res.status(400);
+        res.status(400,);
         throw new Error("Invalid Email or Password");
     }
     });
 
+
+    const updateUserProfile = asyncHandler(async (req,res) => { 
+        //get the logged users id
+
+        const user = await User.findById(req.user._id);
+
+        if(user) {
+            user.Name = req.body.Name || user.Name;
+            user.Email = req.body.Email || user.Email;
+            user.pic = req.body.pic || user.pic;
+            user.Address = req.body.Address || user.Address;
+            user.Phone = req.body.Phone || user.Phone;
+
+            if(req.body.Password) {
+                user.Password = req.body.Password;
+            }
+
+        const updatedUser = await user.save();
+
+        res.json({
+            _id:updatedUser._id,
+            Name:updatedUser.Name,
+            Email:updatedUser.Email,
+            pic:updatedUser.pic,
+            token: generateToken(updatedUser.token),
+            Address:updatedUser.Address,
+            Phone:updatedUser.Phone,
+        });
+     }
+     else{
+         res.status(404)
+         throw new Error("User Not Found");
+     }
+     });
+
+
+
+    const getCustomers = asyncHandler(
+        async(req,res) => {
+            const customer = await User.find({UserType :"customer"})
+            
+            res.json(customer)
+        
+        }
+    )
+
+    const removeCustomer = asyncHandler( 
+        async(req,res) =>{
+            //find the id whther exists or not
+            const customer = await User.findById(req.params.id);
+
+            if(customer){
+                await customer.remove();
+                res.json({ message: "Customer Removed"})
+            }
+            else{
+                res.json(404)
+                throw new Error("Customer Not Found")
+            }
+        }
+    )
  
-module.exports = {registerUser, loginUser};
+module.exports = {registerUser, loginUser, getCustomers, removeCustomer, updateUserProfile};

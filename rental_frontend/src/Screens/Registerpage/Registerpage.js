@@ -15,7 +15,7 @@ const Registerpage = (props) => {
     const [ConfirmPassword, setConfirmPassword] = useState("")
     const [Phone, setPhone] = useState("")
     const [Address, setAddress] = useState("")
-    const [UserType, setUserType] = useState("")
+    const [UserType, setUserType] = useState("customer")
     const [pic, setPic] = useState(
         "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.nicepng.com%2Fpng%2Fdetail%2F136-1366211_group-of-10-guys-login-user-icon-png.png&imgrefurl=https%3A%2F%2Fwww.nicepng.com%2Fourpic%2Fu2q8i1t4t4t4q8a9_group-of-10-guys-login-user-icon-png%2F&tbnid=gHyezIyavOkvwM&vet=12ahUKEwjW5Nys7sHyAhUBFXIKHfdLDNIQMygCegUIARDLAQ..i&docid=9FF7Wj-v_9JOdM&w=820&h=480&q=user&ved=2ahUKEwjW5Nys7sHyAhUBFXIKHfdLDNIQMygCegUIARDLAQ")
     const [Password, setPassword] = useState("")
@@ -48,8 +48,10 @@ const Registerpage = (props) => {
         if (Password !== ConfirmPassword) {
             setMessage("Passwords Do Not Match");    
         }
+        
         else{
-            dispatch(register(Name, NIC, Email, Password,Phone, Address, UserType));
+            console.log("jkxhjxbwde", UserType);
+            dispatch(register(Name, NIC, Email, Password, Phone, Address, UserType, pic ));
             
 
         }  
@@ -142,22 +144,24 @@ const Registerpage = (props) => {
 
             <Form.Group as={Col} controlId="UserType">
             <Form.Label>UserType</Form.Label>
-            <Form.Select defaultValue="customer" 
-            type="UserType"
+            <Form.Select defaultValue="customer"
+            type="select"
             value={UserType}
             onChange={(e) => setUserType(e.target.value)}>
-            <option>customer</option>
+            <option selected value="customer">customer</option>
+            <option selected value="partner">partner</option>
             </Form.Select>
             </Form.Group>
 
             <Form.Group className="pic">
-            <Form.Label>Choose Youer Profile Picture</Form.Label>
+            <Form.Label>Choose Your Profile Picture</Form.Label>
             <Form.Control
               id="custom-file"
               type="file"
               lable="Upload Your Picture Here"
               custom
-              onChange={(e) => setPic(e.target.value)}
+              onChange={(e) => setPic(e.target.files[0].name)}
+              
               
             />
             
