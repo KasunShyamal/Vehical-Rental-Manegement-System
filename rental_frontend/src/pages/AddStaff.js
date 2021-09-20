@@ -41,9 +41,7 @@ function AddStaff() {
                     <label for="name">Employee Name</label>
                     <input type="text" className="form-control" id="name" placeholder="Enter Name"
                     onChange= {(e) =>{
-
                         setName(e.target.value);
-
                     }} />
                 </div>
 
@@ -51,9 +49,7 @@ function AddStaff() {
                     <label for="DoB">DoB</label>
                     <input type="text" className="form-control" id="age" placeholder="Enter DoB"
                     onChange= {(e) =>{
-
                         setDoB(e.target.value);
-                        
                     }} />
                 </div>
 
@@ -61,9 +57,7 @@ function AddStaff() {
                     <label for="NIC">NIC</label>
                     <input type="nic" className="form-control" id="NIC" placeholder="Enter NIC"
                     onChange= {(e) =>{
-
                         setNIC(e.target.value);
-
                     }} />
                 </div>    
 
@@ -71,9 +65,7 @@ function AddStaff() {
                     <label for="Address">Address</label>
                     <input type="text" className="form-control" id="Address" placeholder="Enter Address"
                     onChange= {(e) =>{
-
                         setAddress(e.target.value);
-
                     }} />
                 </div>    
 
@@ -81,9 +73,7 @@ function AddStaff() {
                     <label for="email">Email</label>
                     <input type="email" className="form-control" id="name" placeholder="Enter Name"
                     onChange= {(e) =>{
-
                         setEmail(e.target.value);
-
                     }} />
                 </div>    
 
@@ -91,9 +81,7 @@ function AddStaff() {
                     <label for="Phone">Phone</label>
                     <input type="phone" className="form-control" id="Phone" placeholder="Enter Phone"
                     onChange= {(e) =>{
-
                         setPhone(e.target.value);
-
                     }} />
                 </div>       
 
@@ -101,9 +89,7 @@ function AddStaff() {
                     <label for="gender">Gender</label>
                     <input type="text" className="form-control" id="gender" placeholder="Enter gender"
                     onChange= {(e) =>{
-
                         setGender(e.target.value);
-                        
                     }} />
                 </div>
 
@@ -112,9 +98,7 @@ function AddStaff() {
                     <label for="ID">ID</label>
                     <input type="text" className="form-control" id="ID" placeholder="Enter ID"
                     onChange= {(e) =>{
-
                         setID(e.target.value);
-
                     }} />
                 </div> 
 
@@ -122,9 +106,7 @@ function AddStaff() {
                     <label for="JobTitle">JobTitle</label>
                     <input type="text" className="form-control" id="JobTitle" placeholder="Enter JobTitle"
                     onChange= {(e) =>{
-
                         setJobTitle(e.target.value);
-
                     }} />
                 </div> 
 
@@ -133,9 +115,7 @@ function AddStaff() {
                     <label for="Experience">Experience</label>
                     <input type="text" className="form-control" id="Experience" placeholder="Enter Experience"
                     onChange= {(e) =>{
-
                         setExperience(e.target.value);
-
                     }} />
                 </div> 
 
@@ -144,9 +124,7 @@ function AddStaff() {
                     <label for="HireDate">HireDate</label>
                     <input type="text" className="form-control" id="HireDate" placeholder="Enter HireDate"
                     onChange= {(e) =>{
-
                         setHireDate(e.target.value);
-
                     }} />
                 </div> 
 
@@ -155,9 +133,7 @@ function AddStaff() {
                     <label for="UserName">UserName</label>
                     <input type="text" className="form-control" id="UserName" placeholder="Enter UserName"
                     onChange= {(e) =>{
-
                         setUserName(e.target.value);
-
                     }} />
                 </div>  
 
@@ -166,9 +142,7 @@ function AddStaff() {
                     <label for="Password">Password</label>
                     <input type="password" className="form-control" id="Password" placeholder="Enter Password"
                     onChange= {(e) =>{
-
                         setPassword(e.target.value);
-
                     }} />
                 </div>   
 
@@ -176,9 +150,7 @@ function AddStaff() {
                     <label for="userType">userType</label>
                     <input type="userType" className="form-control" id="userType" placeholder="Enter userType"
                     onChange= {(e) =>{
-
                         setuserType(e.target.value);
-
                     }} />
                 </div>
 
