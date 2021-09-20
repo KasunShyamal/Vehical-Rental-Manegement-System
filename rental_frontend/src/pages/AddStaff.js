@@ -36,156 +36,156 @@ function AddStaff() {
 
     return(
         <div className = "container">
-        <form onSubmit = {sendData}>
-    <div className="form-group">
-        <label for="name">Employee Name</label>
-        <input type="text" className="form-control" id="name" placeholder="Enter Name"
-        onChange= {(e) =>{
+            <form onSubmit = {sendData}>
+                <div className="form-group">
+                    <label for="name">Employee Name</label>
+                    <input type="text" className="form-control" id="name" placeholder="Enter Name"
+                    onChange= {(e) =>{
 
-            setName(e.target.value);
+                        setName(e.target.value);
 
-        }} />
-    </div>
+                    }} />
+                </div>
 
-    <div className="form-group">
-        <label for="DoB">DoB</label>
-        <input type="text" className="form-control" id="age" placeholder="Enter DoB"
-         onChange= {(e) =>{
+                <div className="form-group">
+                    <label for="DoB">DoB</label>
+                    <input type="text" className="form-control" id="age" placeholder="Enter DoB"
+                    onChange= {(e) =>{
 
-            setDoB(e.target.value);
-            
-        }} />
-    </div>
+                        setDoB(e.target.value);
+                        
+                    }} />
+                </div>
 
-    <div className="form-group">
-        <label for="NIC">NIC</label>
-        <input type="nic" className="form-control" id="NIC" placeholder="Enter NIC"
-        onChange= {(e) =>{
+                <div className="form-group">
+                    <label for="NIC">NIC</label>
+                    <input type="nic" className="form-control" id="NIC" placeholder="Enter NIC"
+                    onChange= {(e) =>{
 
-            setNIC(e.target.value);
+                        setNIC(e.target.value);
 
-        }} />
-    </div>    
+                    }} />
+                </div>    
 
-    <div className="form-group">
-        <label for="Address">Address</label>
-        <input type="text" className="form-control" id="Address" placeholder="Enter Address"
-        onChange= {(e) =>{
+                <div className="form-group">
+                    <label for="Address">Address</label>
+                    <input type="text" className="form-control" id="Address" placeholder="Enter Address"
+                    onChange= {(e) =>{
 
-            setAddress(e.target.value);
+                        setAddress(e.target.value);
 
-        }} />
-    </div>    
+                    }} />
+                </div>    
 
-    <div className="form-group">
-        <label for="email">Email</label>
-        <input type="email" className="form-control" id="name" placeholder="Enter Name"
-        onChange= {(e) =>{
+                <div className="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" className="form-control" id="name" placeholder="Enter Name"
+                    onChange= {(e) =>{
 
-            setEmail(e.target.value);
+                        setEmail(e.target.value);
 
-        }} />
-    </div>    
+                    }} />
+                </div>    
 
-    <div className="form-group">
-        <label for="Phone">Phone</label>
-        <input type="phone" className="form-control" id="Phone" placeholder="Enter Phone"
-        onChange= {(e) =>{
+                <div className="form-group">
+                    <label for="Phone">Phone</label>
+                    <input type="phone" className="form-control" id="Phone" placeholder="Enter Phone"
+                    onChange= {(e) =>{
 
-            setPhone(e.target.value);
+                        setPhone(e.target.value);
 
-        }} />
-    </div>       
+                    }} />
+                </div>       
 
-    <div className="form-group">
-        <label for="gender">Gender</label>
-        <input type="text" className="form-control" id="gender" placeholder="Enter gender"
-         onChange= {(e) =>{
+                <div className="form-group">
+                    <label for="gender">Gender</label>
+                    <input type="text" className="form-control" id="gender" placeholder="Enter gender"
+                    onChange= {(e) =>{
 
-            setGender(e.target.value);
-            
-        }} />
-    </div>
+                        setGender(e.target.value);
+                        
+                    }} />
+                </div>
 
-    
-    <div className="form-group">
-        <label for="ID">ID</label>
-        <input type="text" className="form-control" id="ID" placeholder="Enter ID"
-        onChange= {(e) =>{
+                
+                <div className="form-group">
+                    <label for="ID">ID</label>
+                    <input type="text" className="form-control" id="ID" placeholder="Enter ID"
+                    onChange= {(e) =>{
 
-            setID(e.target.value);
+                        setID(e.target.value);
 
-        }} />
-    </div> 
+                    }} />
+                </div> 
 
-    <div className="form-group">
-        <label for="JobTitle">JobTitle</label>
-        <input type="text" className="form-control" id="JobTitle" placeholder="Enter JobTitle"
-        onChange= {(e) =>{
+                <div className="form-group">
+                    <label for="JobTitle">JobTitle</label>
+                    <input type="text" className="form-control" id="JobTitle" placeholder="Enter JobTitle"
+                    onChange= {(e) =>{
 
-            setJobTitle(e.target.value);
+                        setJobTitle(e.target.value);
 
-        }} />
-    </div> 
+                    }} />
+                </div> 
 
-     
-    <div className="form-group">
-        <label for="Experience">Experience</label>
-        <input type="text" className="form-control" id="Experience" placeholder="Enter Experience"
-        onChange= {(e) =>{
+                
+                <div className="form-group">
+                    <label for="Experience">Experience</label>
+                    <input type="text" className="form-control" id="Experience" placeholder="Enter Experience"
+                    onChange= {(e) =>{
 
-            setExperience(e.target.value);
+                        setExperience(e.target.value);
 
-        }} />
-    </div> 
-
-    
-    <div className="form-group">
-        <label for="HireDate">HireDate</label>
-        <input type="text" className="form-control" id="HireDate" placeholder="Enter HireDate"
-        onChange= {(e) =>{
-
-            setHireDate(e.target.value);
-
-        }} />
-    </div> 
+                    }} />
+                </div> 
 
     
-    <div className="form-group">
-        <label for="UserName">UserName</label>
-        <input type="text" className="form-control" id="UserName" placeholder="Enter UserName"
-        onChange= {(e) =>{
+                <div className="form-group">
+                    <label for="HireDate">HireDate</label>
+                    <input type="text" className="form-control" id="HireDate" placeholder="Enter HireDate"
+                    onChange= {(e) =>{
 
-            setUserName(e.target.value);
+                        setHireDate(e.target.value);
 
-        }} />
-    </div>  
+                    }} />
+                </div> 
 
-    
-    <div className="form-group">
-        <label for="Password">Password</label>
-        <input type="password" className="form-control" id="Password" placeholder="Enter Password"
-        onChange= {(e) =>{
+                
+                <div className="form-group">
+                    <label for="UserName">UserName</label>
+                    <input type="text" className="form-control" id="UserName" placeholder="Enter UserName"
+                    onChange= {(e) =>{
 
-            setPassword(e.target.value);
+                        setUserName(e.target.value);
 
-        }} />
-    </div>   
+                    }} />
+                </div>  
 
-    <div className="form-group">
-        <label for="userType">userType</label>
-        <input type="userType" className="form-control" id="userType" placeholder="Enter userType"
-        onChange= {(e) =>{
+                
+                <div className="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" className="form-control" id="Password" placeholder="Enter Password"
+                    onChange= {(e) =>{
 
-            setuserType(e.target.value);
+                        setPassword(e.target.value);
 
-        }} />
-    </div>
+                    }} />
+                </div>   
 
-    <button type="submit" className="btn btn-primary">Submit</button>
-    </form>
-    </div>
-    )
+                <div className="form-group">
+                    <label for="userType">userType</label>
+                    <input type="userType" className="form-control" id="userType" placeholder="Enter userType"
+                    onChange= {(e) =>{
+
+                        setuserType(e.target.value);
+
+                    }} />
+                </div>
+
+        <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
+        </div>
+     )
 }
 
 export default AddStaff;
