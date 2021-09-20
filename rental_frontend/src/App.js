@@ -1,8 +1,10 @@
 import React from 'react';
+import servicesadmin from "./servicesadmin"
 function App() {
   return (
-    <div className="App">
-      <h1>Hellow</h1>
+    <div>
+      <servicesadmin/>
+      
     </div>
   );
 }
