@@ -9,7 +9,7 @@ const reducer = combineReducers({
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
     customerList:viewDetailsReducer,
-    userUpdate:userUpdateReducer,
+    userUpdate:userUpdateReducer         ,
 })
 
 //pass the all user data into a object

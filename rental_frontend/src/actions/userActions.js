@@ -54,9 +54,9 @@ try {
             dispatch({
                 type: USER_LOGIN_FAIL,
                 payload:
-                    error.response && error.response.data.message?
-                    error.data.response.message:
-                    error.message,
+                error.response && error.response.data.message?
+                error.data.response.message:
+                error.message,
             })
         }
     }
@@ -116,7 +116,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     try {
         dispatch({type: USER_UPDATE_REQUEST});
 
-        const {
+        const  {
             userLogin: { userInfo},
 
         } = getState();
@@ -124,7 +124,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
         const config = {
             headers:{
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${userInfo.token}`,
+                Authorization: `Bearer ${userInfo.data.token}`,
             }
         };
         let  data = await axios.post('http://localhost:8092/api/customer/profile', user, config).

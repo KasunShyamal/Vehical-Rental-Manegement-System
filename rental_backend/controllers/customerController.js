@@ -68,7 +68,7 @@ const registerUser = asyncHandler(async(req, res) => {
     }
 
     else{
-        res.status(400,);
+        res.status(400);
         throw new Error("Invalid Email or Password");
     }
     });

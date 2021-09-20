@@ -27,18 +27,19 @@ const View_de = () => {
 
     return (
        <MainScreen title='View Your Customers'>
-           {console.log(cusInfo)}
+           {console.log(cusInfo, "abcd")}
            <Link to = "#">
            <Button>View My Partners</Button>
            </Link><hr />
             {error && <Error variant="danger">{error}</Error>}
            {loading && <Loading/>}
 
+
              {cusInfo && cusInfo.length>0 ? 
                 cusInfo.map((customer) => (
 
                 <Accordion >
-                    <Card Style={{margin:10}} key={customer._id}>
+                    <Card style={{margin:10}} key={customer._id}>
                     <Card.Header style={{display: "flex"}}>
                         <span
                         style={{
@@ -49,7 +50,13 @@ const View_de = () => {
                             alignSelf: "center",
                             fontSize: 18,
                         }}>
-                          {customer.Name}
+                          <Accordion.Toggle
+                      as={Card.Text}
+                      variant="link"
+                      eventKey="0"
+                    >
+                      {customer.title}
+                    </Accordion.Toggle>
                         </span> 
                         <div>
                             <Button variant="danger" className="mx-2"
@@ -76,7 +83,7 @@ const View_de = () => {
                     </Card.Body>
                    
                 </Card>
-                </Accordion>)): null }
+                    </Accordion>)): null }
 
        </MainScreen>
     )

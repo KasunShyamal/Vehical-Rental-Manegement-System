@@ -43,7 +43,7 @@ useEffect(() => {}, [userInfo])
           <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/">Link</Nav.Link>
         <NavDropdown title= {userInfo?.data.Name} id="basic-nav-dropdown">
-          <NavDropdown.Item href="">My Profile</NavDropdown.Item>
+          <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item 
             onClick={ logoutHandler }

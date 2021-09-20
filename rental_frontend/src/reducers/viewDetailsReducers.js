@@ -1,6 +1,6 @@
 import { CUSTOMER_LIST_FAIL, CUSTOMER_LIST_REQUEST, CUSTOMER_LIST_SUCCESS } from "../constants/viewDetailsConstants";
 
-export const viewDetailsReducer=(state={ cusInfo:[]},action) =>{
+export const viewDetailsReducer=(state={ cusInfo:[] },action) =>{
     switch (action.type) {
         case CUSTOMER_LIST_REQUEST:
             return{loading: true};
