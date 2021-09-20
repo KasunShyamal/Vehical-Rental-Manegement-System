@@ -137,7 +137,7 @@ function AddStaff() {
                     }} />
                 </div>  
 
-                
+  
                 <div className="form-group">
                     <label for="Password">Password</label>
                     <input type="password" className="form-control" id="Password" placeholder="Enter Password"
