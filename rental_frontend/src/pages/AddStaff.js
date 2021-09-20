@@ -59,7 +59,7 @@ function AddStaff() {
 
     <div className="form-group">
         <label for="NIC">NIC</label>
-        <input type="text" className="form-control" id="NIC" placeholder="Enter NIC"
+        <input type="nic" className="form-control" id="NIC" placeholder="Enter NIC"
         onChange= {(e) =>{
 
             setNIC(e.target.value);
@@ -78,8 +78,8 @@ function AddStaff() {
     </div>    
 
     <div className="form-group">
-        <label for="name">Email</label>
-        <input type="text" className="form-control" id="name" placeholder="Enter Name"
+        <label for="email">Email</label>
+        <input type="email" className="form-control" id="name" placeholder="Enter Name"
         onChange= {(e) =>{
 
             setEmail(e.target.value);
@@ -89,7 +89,7 @@ function AddStaff() {
 
     <div className="form-group">
         <label for="Phone">Phone</label>
-        <input type="text" className="form-control" id="Phone" placeholder="Enter Phone"
+        <input type="phone" className="form-control" id="Phone" placeholder="Enter Phone"
         onChange= {(e) =>{
 
             setPhone(e.target.value);
@@ -109,7 +109,7 @@ function AddStaff() {
 
     
     <div className="form-group">
-        <label for="name">ID</label>
+        <label for="ID">ID</label>
         <input type="text" className="form-control" id="ID" placeholder="Enter ID"
         onChange= {(e) =>{
 
@@ -119,7 +119,7 @@ function AddStaff() {
     </div> 
 
     <div className="form-group">
-        <label for="name">JobTitle</label>
+        <label for="JobTitle">JobTitle</label>
         <input type="text" className="form-control" id="JobTitle" placeholder="Enter JobTitle"
         onChange= {(e) =>{
 
@@ -130,7 +130,7 @@ function AddStaff() {
 
      
     <div className="form-group">
-        <label for="name">Experience</label>
+        <label for="Experience">Experience</label>
         <input type="text" className="form-control" id="Experience" placeholder="Enter Experience"
         onChange= {(e) =>{
 
@@ -141,7 +141,7 @@ function AddStaff() {
 
     
     <div className="form-group">
-        <label for="name">HireDate</label>
+        <label for="HireDate">HireDate</label>
         <input type="text" className="form-control" id="HireDate" placeholder="Enter HireDate"
         onChange= {(e) =>{
 
@@ -152,7 +152,7 @@ function AddStaff() {
 
     
     <div className="form-group">
-        <label for="name">UserName</label>
+        <label for="UserName">UserName</label>
         <input type="text" className="form-control" id="UserName" placeholder="Enter UserName"
         onChange= {(e) =>{
 
@@ -163,8 +163,8 @@ function AddStaff() {
 
     
     <div className="form-group">
-        <label for="name">Password</label>
-        <input type="text" className="form-control" id="Password" placeholder="Enter Password"
+        <label for="Password">Password</label>
+        <input type="password" className="form-control" id="Password" placeholder="Enter Password"
         onChange= {(e) =>{
 
             setPassword(e.target.value);
@@ -173,8 +173,8 @@ function AddStaff() {
     </div>   
 
     <div className="form-group">
-        <label for="name">userType</label>
-        <input type="text" className="form-control" id="userType" placeholder="Enter userType"
+        <label for="userType">userType</label>
+        <input type="userType" className="form-control" id="userType" placeholder="Enter userType"
         onChange= {(e) =>{
 
             setuserType(e.target.value);
