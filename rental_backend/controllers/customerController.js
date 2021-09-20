@@ -97,7 +97,7 @@ const registerUser = asyncHandler(async(req, res) => {
             Name:updatedUser.Name,
             Email:updatedUser.Email,
             pic:updatedUser.pic,
-            token: generateToken(updatedUser.token),
+            token: generateToken(updatedUser._id),
             Address:updatedUser.Address,
             Phone:updatedUser.Phone,
         });

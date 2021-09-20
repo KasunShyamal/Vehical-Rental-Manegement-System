@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { Card, Button, Badge, Accordion,  } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Card, Button, Badge  } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { cusList } from '../../actions/viewDetailsActions'
@@ -9,83 +9,77 @@ import Error from '../../components/Error'
 
 
 const View_de = () => {
-    const  dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const customerList = useSelector(state => state.customerList)
-    const{loading, cusInfo, error} = customerList;
+    const { loading, cusInfo, error } = customerList;
+    const [custList, setCusList] = useState([])
 
-    const deleteHandler = (id) =>{
-        if(window.confirm("Are You Sure")){
+    const deleteHandler = (id) => {
+        if (window.confirm("Are You Sure")) {
 
         }
     };
 
     useEffect(() => {
         dispatch(cusList());
-    }, [dispatch]);
+        setCusList(cusInfo.data)
+    }, []);
 
 
     return (
-       <MainScreen title='View Your Customers'>
-           {console.log(cusInfo, "abcd")}
-           <Link to = "#">
-           <Button>View My Partners</Button>
-           </Link><hr />
+        <MainScreen title='View Your Customers'>
+            <Link to="#">
+                <Button>View My Partners</Button>
+            </Link><hr />
             {error && <Error variant="danger">{error}</Error>}
-           {loading && <Loading/>}
+            {loading && <Loading />}
 
+            {custList && custList.length > 0 ?
 
-             {cusInfo && cusInfo.length>0 ? 
-                cusInfo.map((customer) => (
+                custList.map((customer, index) => {
+                    return (
+                        <Card style={{ margin: 10 }} key={customer._id}>
+                            <Card.Header style={{ display: "flex" }}>
+                                <span
+                                    style={{
+                                        color: "black",
+                                        textDecoration: "none",
+                                        flex: 1,
+                                        cursor: "pointer",
+                                        alignSelf: "center",
+                                        fontSize: 18,
+                                    }}>
+                                    {customer.Name}
+                                </span>
+                                <div>
+                                    <Button variant="danger" className="mx-2"
+                                        onClick={() => deleteHandler()}>
+                                        Remove
+                                    </Button>
+                                </div>
 
-                <Accordion >
-                    <Card style={{margin:10}} key={customer._id}>
-                    <Card.Header style={{display: "flex"}}>
-                        <span
-                        style={{
-                            color: "black",
-                            textDecoration: "none",
-                            flex: 1,
-                            cursor: "pointer",
-                            alignSelf: "center",
-                            fontSize: 18,
-                        }}>
-                          <Accordion.Toggle
-                      as={Card.Text}
-                      variant="link"
-                      eventKey="0"
-                    >
-                      {customer.title}
-                    </Accordion.Toggle>
-                        </span> 
-                        <div>
-                            <Button variant="danger" className="mx-2"
-                                     onClick={() => deleteHandler()}>
-                                 Remove 
-                            </Button>
-                        </div>
-                       
-                    </Card.Header>
-                    
-                    <Card.Body>
-                        <Badge bg="success">
-                            NIc No : {customer.NIC}
-                        </Badge>
-                    <blockquote className="blockquote mb-0">
-                        <p>
-                          Emain Address: {customer.Email} <br />
-                          Address: {customer.Address} <br/>
-                          Mobile Number: {customer.Phone} <br/>
-                          
-                        </p>
+                            </Card.Header>
 
-                    </blockquote>
-                    </Card.Body>
-                   
-                </Card>
-                    </Accordion>)): null }
+                            <Card.Body>
+                                <Badge bg="success">
+                                    NIc No : {customer.NIC}
+                                </Badge>
+                                <blockquote className="blockquote mb-0">
+                                    <p>
+                                        Emain Address: {customer.Email} <br />
+                                        Address: {customer.Address} <br />
+                                        Mobile Number: {customer.Phone} <br />
+                                    </p>
 
-       </MainScreen>
+                                </blockquote>
+                            </Card.Body>
+                        </Card>
+                    )
+                })
+                : null}
+
+        </MainScreen>
     )
 }
 
