@@ -53,10 +53,7 @@ try {
         catch(error) {
             dispatch({
                 type: USER_LOGIN_FAIL,
-                payload:
-                error.response && error.response.data.message?
-                error.data.response.message:
-                error.message,
+                payload: error.response ? error.response.data.message : ""
             })
         }
     }
@@ -102,10 +99,7 @@ export const register = (Name, NIC, Email, Password,Phone, Address, UserType, pi
     catch(error){
         dispatch({
             type: USER_REGISTER_FAIL,
-            payload:
-            error.response && error.response.data.message?
-            error.data.response.message:
-            error.message,
+            payload: error.response ? error.response.data.message : ""
         }) 
     }
 
@@ -142,10 +136,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     } catch (error) {
         dispatch({
             type: USER_UPDATE_FAIL,
-            payload:
-            error.response && error.response.data.message?
-            error.response.data.message:
-            error.message,
+            payload: error.response ? error.response.data.message : ""
         });
     }
 };

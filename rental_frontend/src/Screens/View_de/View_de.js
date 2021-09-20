@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Button, Badge  } from 'react-bootstrap'
+import { Card, Button, Badge, Accordion, } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { cusList } from '../../actions/viewDetailsActions'
