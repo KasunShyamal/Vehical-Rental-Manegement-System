@@ -1,9 +1,11 @@
-import React from 'react';
-import servicesadmin from "./servicesadmin"
+import serviceadminpage from './components/serviceadminpage'
+import servicepage from './components/servicepage'
+
+
 function App() {
   return (
     <div>
-      <servicesadmin/>
+      <serviceadminpage/>
       
     </div>
   );
