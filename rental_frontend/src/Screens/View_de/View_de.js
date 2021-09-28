@@ -24,7 +24,7 @@ const View_de = () => {
     useEffect(() => {
         dispatch(cusList());
         setCusList(cusInfo.data)
-    }, []);
+    }, [dispatch]);
 
 
     return (
@@ -35,9 +35,9 @@ const View_de = () => {
             {error && <Error variant="danger">{error}</Error>}
             {loading && <Loading />}
 
-            {custList && custList.length > 0 ?
+            {custList &&  custList.length > 0 ?
 
-                custList.map((customer, index) => {
+                custList.reverse().map((customer, index) => {
                     return (
                         <Card style={{ margin: 10 }} key={customer._id}>
                             <Card.Header style={{ display: "flex" }}>
@@ -67,7 +67,7 @@ const View_de = () => {
                                 </Badge>
                                 <blockquote className="blockquote mb-0">
                                     <p>
-                                        Emain Address: {customer.Email} <br />
+                                        Email Address: {customer.Email} <br />
                                         Address: {customer.Address} <br />
                                         Mobile Number: {customer.Phone} <br />
                                     </p>
@@ -77,7 +77,8 @@ const View_de = () => {
                         </Card>
                     )
                 })
-                : null}
+                : null
+                }
 
         </MainScreen>
     )

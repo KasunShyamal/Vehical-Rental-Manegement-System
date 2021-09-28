@@ -1,4 +1,4 @@
-
+import "./bootstrap.css";
 import React from 'react'
 import { Container, Row, Button, Image } from 'react-bootstrap'
 import "./LandingPage.css"
