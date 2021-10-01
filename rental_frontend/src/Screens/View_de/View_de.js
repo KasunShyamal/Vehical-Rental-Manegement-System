@@ -23,8 +23,16 @@ const View_de = () => {
 
     useEffect(() => {
         dispatch(cusList());
-        setCusList(cusInfo.data)
-    }, [dispatch]);
+        setTimeout(() => {
+            console.log("abcd",customerList)
+            
+        }, 2000);
+        
+    }, []);
+
+    useEffect(()=>{
+        setCusList(customerList && customerList.cusInfo && customerList.cusInfo.data ? customerList.cusInfo.data:[])
+    },[customerList]);
 
 
     return (

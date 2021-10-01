@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const nodemon = require("nodemon");
 const customerRoutes = require('./routes/customerRoutes');
+const addRoutes = require('./routes/addRoutes');
 const { notFound, errorHandler } = require("./middleware/errorMiddeware");
 const app = express();
 require("dotenv").config();
@@ -26,6 +27,7 @@ mongoose.connect(URL, {
 });
 
 app.use('/api/customer', customerRoutes);
+app.use('/api/add', addRoutes);
 
 app.use(notFound)
 app.use(errorHandler)

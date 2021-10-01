@@ -2,11 +2,14 @@ import "./bootstrap.css";
 import React from 'react'
 import { Container, Row, Button, Image } from 'react-bootstrap'
 import "./LandingPage.css"
+//import Header from './components/Header/Navbar.js'
  
 
 
 const Landingpage = () => {
+    
     return (
+        
         <div className="main">
             <Container>
             <Row>

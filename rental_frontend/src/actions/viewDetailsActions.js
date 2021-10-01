@@ -9,12 +9,13 @@ export const cusList = () => async (dispatch) =>{
 
         let data = await axios.get('http://localhost:8092/api/customer/getCustomer').
         then(function(response){
+                dispatch({type:CUSTOMER_LIST_SUCCESS, payload: response});
                 return response;
         });
 
         
 
-        dispatch({type:CUSTOMER_LIST_SUCCESS, payload: data});
+        
 
     } catch (error) {
         const message = error.response && error.response.data.message?

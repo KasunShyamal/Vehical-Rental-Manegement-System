@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
+import Header1 from './components/Header/Header1';
+import Header from './components/Header/Navbar';
 import Landingpage from './Screens/LandingPage/Landingpage';
 import { BrowserRouter, Route } from "react-router-dom"
 import Registerpage from './Screens/Registerpage/Registerpage';
@@ -18,6 +19,7 @@ import ProfileScreen from './Screens/ProfileScreen/ProfileScreen';
 const App = () =>(
   document.title = "Route Master",
   <BrowserRouter>
+      <Header1 />
       <Header />
       <main>
         <Route path='/' component ={Landingpage} exact/>
