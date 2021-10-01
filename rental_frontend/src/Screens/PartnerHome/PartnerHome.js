@@ -36,7 +36,7 @@ const PartnerHome = () => {
     return (
         <MainScreen title='Your Advertisements'>
         
-        <a href ='/View_de'>
+        <a href ='/createAdd'>
         <Button  variant="primary">
              Add new Advertisement
              </Button>
@@ -72,7 +72,7 @@ const PartnerHome = () => {
                             </Card.Header>
 
                             <Card.Body>
-                                <Badge bg="success">
+                                <Badge bg="danger">
                                     Business Type : {adds.Type}
                                 </Badge>
                                 <blockquote className="blockquote mb-0">

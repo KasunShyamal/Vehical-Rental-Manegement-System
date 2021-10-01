@@ -12,6 +12,7 @@ import AdminHome from './Screens/AdminHome/AdminHome';
 import PartnerHome from './Screens/PartnerHome/PartnerHome';
 import View_de from './Screens/View_de/View_de';
 import ProfileScreen from './Screens/ProfileScreen/ProfileScreen';
+import CreateAdd from './Screens/CreateAdd/CreateAdd';
 
 
 
@@ -31,6 +32,7 @@ const App = () =>(
         <Route path='/PartnerHome' component={PartnerHome} exact />
         <Route path='/View_de' component={View_de} exact/>
         <Route path='/profile' component={ProfileScreen} />
+        <Route path='/createAdd' component={CreateAdd} exact />
       </main>
       <Footer />
 

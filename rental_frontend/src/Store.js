@@ -3,7 +3,7 @@ import thunk from  "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { userLoginReducer, userRegisterReducer, userUpdateReducer } from './reducers/userRedusers';
 import { viewDetailsReducer } from './reducers/viewDetailsReducers';
-import { addReducer } from './reducers/addRedusers';
+import { addReducer, createAddReducer } from './reducers/addRedusers';
 
 const reducer = combineReducers({
     //this will contain the reducer
@@ -12,6 +12,7 @@ const reducer = combineReducers({
     customerList:viewDetailsReducer,
     userUpdate:userUpdateReducer,
     addList :addReducer,
+    createAdd : createAddReducer,
 })
 
 //pass the all user data into a object
