@@ -63,7 +63,7 @@ class UpdateCategory extends Component {
                 formData.set("category", this.state.category);
                
                 axios.put(`http://localhost:8092/api/categories/UpdateCategory/${this.props.match.params.id}`, formData).then(res => {
-                    Alert("success", "Done!", "Vehicle Updated Successfully.");
+                    Alert("success", "Done!", "category Updated Successfully.");
                     this.setState({
                         category: "",
                     });
@@ -82,9 +82,9 @@ class UpdateCategory extends Component {
     render() {
         return (
             <CreateContainer>
-            <div className="container">
+            <div className="containe">
              
-                        <div className="col-md-7">
+                        <div className="">
                             <br/>
                                 <form onSubmit={(e) => this.submit(e)}>
                                     <br/>
@@ -122,7 +122,7 @@ input[type=submit] {
     background-color: #4CAF50;
     color: white;
     padding: 1px 2px;
-    margin: 56px 0;
+    margin: 6px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -131,12 +131,21 @@ input[type=submit] {
   input[type=submit]:hover {
     background-color: #45a049;
   }
+  .containe{
+    background:gray;
+    margin-top:70px;
+    margin-left:134px;;
+    border: 1px solid  gray;
+    width:67%;
+  
+  }
   
   div {
     border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 10px;
+    background-color: white;
+    padding: 30px;
     margin-top:67px;
+ 
   }
 
 

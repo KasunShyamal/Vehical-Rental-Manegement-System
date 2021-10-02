@@ -6,7 +6,7 @@ const Header = ()=>{
     
       
         <MainContainer>
-          <img src={logo} alt="My logo"  style={{ height: 70, width: 70, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
+          <img src={logo} alt="My logo"  style={{ height: 60, width: 60, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
          <h3>ROUTE MASTER VEHICLE RENTAL ...</h3>
          <h6>Call now</h6> 
          <h6>011-23456300</h6>
@@ -27,10 +27,10 @@ background-color:black;
     transform:translate(-140%,-50%);
     color:#66a3ff;
     text-shadow: 0 0 1px white, 0 0 1px black;
-    font-weigth:9;
+    font-weigth:3;
     position:absolute;
     top:6%;
-    font: 2rem Stencil Std, fantasy;
+    font: 2rem Helvetica (sans-serif);
     left:50%;
   }
  

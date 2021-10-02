@@ -39,7 +39,7 @@ router.post('/AddVehicle', async (req, res) => {
     image.mv("./public/images/Vehicles/" + imageName, (err, result) => {
         if (err) return res.status(400).send("Error : " + err);
     });
-
+//
     let imageURL = urlPrefix + "/Vehicles/" + imageName;
 
     let vehicle = new Vehicle({

@@ -18,7 +18,7 @@ const CategorySmallView = (props) => {
  // Function for delete vehicle
  const deleteCategory = () => {
     Swal.fire({
-        title: 'Are you want to delete vehicle',
+        title: 'Are you want to delete category',
         text: "Note that ths process can not be revert.",
         icon: 'warning',
         showCancelButton: true,

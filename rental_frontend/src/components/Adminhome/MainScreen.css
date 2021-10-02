@@ -1,0 +1,67 @@
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  a {
+    text-decoration: none;
+  }
+  li {
+    list-style: none;
+  }
+  /* Navigation STyling */
+  .main-nav1 {
+    width: 200px;
+    background: blue;
+    height: auto;
+  }
+  
+  .main-nav1 {
+    width: 200px;
+    background: blue;
+    height: auto;
+  }
+  
+  .main-nav1 a {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #fff;
+    display: block;
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px gray;
+  }
+  .main-nav1 a:hover {
+    background: rgb(142, 146, 146);
+  }
+  .main-nav-ul ul {
+    display: none;
+  }
+  .main-nav-ul li:hover ul {
+    display: block;
+  }
+  .main-nav-ul ul a:before {
+    content: "\203A";
+    margin-right: 20px;
+  }
+  .main-nav1 .sub-arrow:after {
+    content: "\203A";
+    float: right;
+    margin-right: 30px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+  }
+  .main-nav1 li:hover .sub-arrow:after {
+    content: "\2039";
+  }
+  #button1{
+    float: left;
+    margin-top: 10px;
+    }
+    
+    #button2{
+    float:left;
+    margin-top: 10px;
+    margin-left: 10px;
+    }
+  

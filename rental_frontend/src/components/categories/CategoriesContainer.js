@@ -80,7 +80,8 @@ class CategoriesContainer extends Component {
                         </div>
                     </div>
                 </div>
-              
+              <br/>
+              <br/>
             </div>
             </CreateContainer>
         </React.Fragment>
@@ -99,8 +100,7 @@ const CreateContainer = styled.div`
     background:gray;
     margin-top:70px;
     border: 1px solid  gray;
-    height:1300px
-    width:1300px
+  
    
 }
 .col-xs-12 col-sm-7{
@@ -111,4 +111,6 @@ const CreateContainer = styled.div`
 #root{
     background-color:gray; 
 }
+
+ 
 `;

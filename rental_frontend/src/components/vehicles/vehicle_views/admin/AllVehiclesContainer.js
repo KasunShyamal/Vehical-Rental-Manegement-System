@@ -6,7 +6,10 @@ import styled from 'styled-components';
 import VehicleActions from './VehicleActions';
 import {  MDBIcon } from "mdbreact";
 import  reports from './report.png'
-import  cancel from './cancel (2).png'
+import  report from './r.png'
+const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
 
 const styles = {
     paperContainer: {
@@ -66,49 +69,56 @@ class AllVehiclesContainer extends Component {
     render() {
         return (
 <SearchContainer>
-<br/>
-<h3 className={"text-secondary text-center mb-5"}>All Vehicle Details</h3>
+
+
             <div className="container-fluid mt-5">
-                <div className="row">
-                    
+                <div className="row">    
                     <nav class="navbar navbar-light bg-light">
                         <div class="container-fluid">
                             <div class="d-flex">
                                 <input onChange={(e) => this.search(e)} class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                                <button   class="btn btn-primary"type="submit">Search</button>
+                                <button   class="btn btn-primary"type="submit">
+                                <img src={report} alt="My logo"  style={{ height: 30, width: 30, borderColor: 'gray', borderWidth: 2,  marginBottom: 1 , marginleft:1} }/>
+                                </button>
+                                
                             </div>
                         </div>
                     </nav>
 
                     {
                         this.state.isGen ? <div className="row text-end">
+                            
                             <div className="col">
+                            <h3></h3>
                                 {this.getRedirectButton()}
                                 <ReactToPrint
 
-                                    documentTitle={"All Packages"}
+                                    documentTitle={"All Vehicles "}
                                     onAfterPrint={() => { this.setState({ isGen: false }); }}
                                     trigger={() => {
-                                        return <button type="button" class="btn btn-primary">Generate PDF Now
-                        
+                                        return <button type="button" class="btn btn-primary">Generate PDF
                                         </button>
+                                        
                                     }}
+                                    
                                     content={() => this.componentRef}
                                 />
                                 <button onClick={() => { this.setState({ isGen: false }); }} type="button" class="btn btn-danger m-2">Cancel
-                                <img src={cancel} alt="My logo"  style={{ height: 25, width: 25, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
+                              
                                 </button>
                             </div>
                         </div> : <div className="row text-end">
                             
                         </div>
                     }
-<br/><br/>
                     <div ref={el => (this.componentRef = el)}>
-                      
+                      <h3>{date}</h3>
+                      <h3 className={"text-secondary text-center mb-5"}>All Vehicle Details</h3>
+                  
                         <div class="table-responsive">
                             <table class="table table-hover text-center">
                                 <thead className="table-dark">
+                                 
                                     <tr>
                                         <th scope="col">Vehicle Number</th>
                                         <th scope="col">Brand</th>
@@ -118,11 +128,15 @@ class AllVehiclesContainer extends Component {
                                         <th scope="col">Sheets</th>
                                         <th scope="col">Condition</th>
                                         {
+                                            
                                             !this.state.isGen ? <th scope="col">Actions</th> : <React.Fragment />
                                         }
+                                        
                                     </tr>
                                 </thead>
+                               
                                 <tbody>
+                                    
                                     <React.Fragment>
                                         {
                                             this.state.filterdVehicles.map(vehicle => {
@@ -137,7 +151,8 @@ class AllVehiclesContainer extends Component {
                     </div>
                     <div className="row text-end">  
                     <div className="col">
-              
+                   
+                                
                                <button type="button" onClick={() => { this.setState({ isGen: true }); }} class="btn btn-outline-secondary">Genrate Report
                                <img src={reports} alt="My logo"  style={{ height: 30, width: 30, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
                                </button>
@@ -155,10 +170,11 @@ const SearchContainer = styled.div`
 .container{
     background:gray;
     margin-top:30px;
-    border: 1px solid  gray
+    border: 1px solid  gray;
 }
 .table{
 tr:nth-child(even){background-color: #f2f2f2;
+
 }
 tr:hover {background-color: #ddd;
 };
@@ -172,11 +188,11 @@ color:white !important;
 }
 }
 table th,tr {
-    border: 1px solid gray;
+    border: 1px solid black;
     border-style: solid
   }
  .btn{
-      color:black;
+      color:white;
       border: 1px solid gray;
       border-style: solid;
       width:89%;

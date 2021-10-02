@@ -6,8 +6,9 @@ import { Alert } from '../../../services/Alert';
 import vehicleValidations from '../../../validations/VehicleValidations';
 import dummy_image from "../../../assets/images/dummy_image.jpg";
 import dummy from "./back1.jpg";
+
 class CreateVehicle extends Component {
-    constructor(props) {
+    constructor(props) {//asign to the values using java script constructor
         super(props);
         this.state = {
             image: null,
@@ -130,13 +131,11 @@ class CreateVehicle extends Component {
     }
 
     render() {
-        return (
-            
+        return (   
             <CreateContainer>
-            <div  styles={{ backgroundImage:`url(${dummy})`,backgroundRepeat: 'no-repeat',
-  width:'250px'  ,height:'1230px'}}>  
+    
             <div className="container">
-              <div className="card mb-3 mt-5">
+              <div className="">
                     <div className="row g-0">
                         <div className="col-md-7">
                             <img src={this.state.image ? this.state.image.preview : dummy_image} className="img-fluid rounded-start" alt="..." />
@@ -247,7 +246,7 @@ class CreateVehicle extends Component {
                     </div>
                 </div>
             </div>
-            </div>
+        
             </CreateContainer>
          
         );
@@ -257,25 +256,27 @@ class CreateVehicle extends Component {
 export default withRouter(CreateVehicle);
 const CreateContainer = styled.div`
   img{
-   
+   height:600px;
   }
   h4{
     front-color: black
   }
-height:90px;
+
 .nav-link{
 color:white !important;
 &:hover{
     background-image: linear-gradient(to right top, #3f7f85, #578e9a, #6f9dad, #89acbf, #a2bbd0, #9eb7cb, #99b2c7, #95aec2, #7396a6, #527e89, #34666b, #194f4c);
 }
 }
-.container{
+div {
+    border-radius: 5px;
+    background-color: white;
+    padding:1px;
+  }
+  .container{
     background:gray;
-    margin-top:70px;
-    border: 1px solid  gray;
-    height:1300px
-    width:1300px
-   
+    margin-top:30px;
+    border: 7px solid  gray
 }
 .imag{
     background-image: url(../../../assets/images/dummy_image.jpg);
@@ -283,11 +284,12 @@ color:white !important;
   hr{
     height: 10px;
     border: 1;
-    box-shadow: inset 0 9px 9px -3px rgba(11, 99, 184, 0.8);
+    box-shadow: inset 0 9px 9px -3px gray;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     border-radius: 5px;
     }
+    
 `;

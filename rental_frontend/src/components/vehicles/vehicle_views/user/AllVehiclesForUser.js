@@ -29,9 +29,9 @@ class AllVehiclesForUser extends Component {
     />
         return (
        
-            <div className="container mt-5">
+            <div className="container">
                 <div className="row">
-                    <h3 className={"text-secondary text-center mb-5"}>All Vehicles</h3>
+                    <h2 className={"text-secondary text-center mb-5"}>All Vehicles</h2>
                     <React.Fragment>
                    
                         {
@@ -40,7 +40,10 @@ class AllVehiclesForUser extends Component {
                             })
                         }
                     </React.Fragment><br/>
+                    <br/>
                 </div>
+                <br/>
+                <br/>
             </div>
 
         );

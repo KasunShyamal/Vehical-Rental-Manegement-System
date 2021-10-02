@@ -29,8 +29,10 @@ const AdminNavbar = () => {
                     <li onClick={() => handleClick("/admin/categories/")} className="nav-item active">
                         <a className="nav-link" href="#">Categories</a>
                     </li>
+                  
                 </ul>
             </div>
+            
         </nav >
         </NavbarContainer>
     );

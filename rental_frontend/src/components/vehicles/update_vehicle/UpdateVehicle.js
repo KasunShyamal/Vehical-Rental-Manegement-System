@@ -290,6 +290,11 @@ color:white !important;
     margin-top:30px;
     border: 1px solid  gray
 }
+div {
+    border-radius: 5px;
+    background-color: white;
+    padding:1px;
+  }
 hr{
     height: 10px;
     border: 1;

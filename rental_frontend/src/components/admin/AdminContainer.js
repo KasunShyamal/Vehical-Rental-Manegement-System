@@ -9,7 +9,7 @@ import CategoriesContainer from '../categories/CategoriesContainer';
 import UpdateCategory from '../categories/UpdateCategory';
 import AdminVehicleManager from '../vehicles/AdminVehicleManager';
 //import AdminNavbar from '../shared/navigators/AdminNavbar';
-import Header from '../shared/header/Header';
+import AdminHomepage from '../Adminhome/AdminHomepage';
 const AdminContainer = () => {
     return (<React.Fragment>
       
@@ -30,6 +30,9 @@ const AdminContainer = () => {
                 />
                     <Route exact path="/">
 
+                    </Route>
+                    <Route exact path="/admin">
+                    <AdminHomepage />
                     </Route>
                 </Switch>
             </Router>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import styled from 'styled-components';
 class ViewMoreVehicle extends Component {
     constructor(props) {
         super(props);
@@ -23,6 +23,7 @@ class ViewMoreVehicle extends Component {
 
     render() {
         return (
+            <CreateContainer>
             <div className="container mt-5">
                 {
                     this.state.vehicle ? <div class="card mb-3">
@@ -58,11 +59,47 @@ class ViewMoreVehicle extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div> : <React.Fragment />
+                    </div> : <React.Fragment />//return multiple elements
                 }
             </div>
+            </CreateContainer>
         );
     }
 }
 
 export default ViewMoreVehicle;
+
+const CreateContainer = styled.div`
+
+  h4{
+    front-color: black
+  }
+
+.nav-link{
+color:white !important;
+&:hover{
+    background-image: linear-gradient(to right top, #3f7f85, #578e9a, #6f9dad, #89acbf, #a2bbd0, #9eb7cb, #99b2c7, #95aec2, #7396a6, #527e89, #34666b, #194f4c);
+}
+}
+.container{
+    background:gray;
+    margin-top:70px;
+    border: 1px solid  gray;
+    height:1300px
+    width:1300px
+   
+}
+.imag{
+    background-image: url(../../../assets/images/dummy_image.jpg);
+  }
+  hr{
+    height: 10px;
+    border: 1;
+    box-shadow: inset 0 9px 9px -3px rgba(11, 99, 184, 0.8);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    }
+`;
