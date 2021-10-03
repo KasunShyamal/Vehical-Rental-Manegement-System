@@ -12,7 +12,8 @@ const createOrders = asyncHandler(async(req,res) =>{
     const {pickupLocation,pickupDate,returnDate,packageType,vehicleType} = req.body;
 
     if (!pickupLocation || !pickupDate || !returnDate || !packageType || !vehicleType){
-        res.status(400);
+        console.log("validation")
+        res.status(400).json({error : 'Please fill all the fields'});
         throw new Error("Please fill all the fields");
     }
     else{
