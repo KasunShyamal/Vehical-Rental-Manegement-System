@@ -13,6 +13,9 @@ const PartnerHome = () => {
     const {loading, add, error} = addList;
     const [addsList, setAddsList] = useState([]);
 
+    const updateAdd = useSelector((state) => state.updateAdd);
+    const { success: successUpdate } = updateAdd;
+
     const deleteHandler = (id) => {
         if (window.confirm("Are You Sure")) {
 
@@ -30,7 +33,7 @@ const PartnerHome = () => {
 
     useEffect(()=>{
         setAddsList(addList && addList.add && addList.add.data ? addList.add.data:[])
-    },[addList]);
+    },[addList, successUpdate]);
 
 
     return (
@@ -63,8 +66,7 @@ const PartnerHome = () => {
                                     {adds.Name}
                                 </span>
                                 <div>
-                                    <Button variant="success" className="mx-2"
-                                        onClick={() => deleteHandler()}>
+                                    <Button href={`/add/${adds._id}`} variant="success" className="mx-2">
                                         Update
                                     </Button>
                                 </div>
@@ -86,9 +88,10 @@ const PartnerHome = () => {
                             </Card.Body>
                         </Card>
                     )
-                })
-                : null
-                }
+                }) : null}
+                <Button  variant="info">
+             Get a Report
+             </Button>
     </MainScreen>
     )
 }

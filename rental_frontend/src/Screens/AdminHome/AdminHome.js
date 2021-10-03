@@ -10,9 +10,9 @@ const AdminHome = () => {
        <MainScreen title='Welcome'>
            <div className="buttonContainer">
            <a href ='/View_de'>
-           <Button  variant="primary" >
+            <Button  variant="primary" >
                 View Customers and Partners
-                </Button>
+            </Button>
             </a>
             </div>
        </MainScreen>

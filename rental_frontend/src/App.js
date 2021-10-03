@@ -13,6 +13,7 @@ import PartnerHome from './Screens/PartnerHome/PartnerHome';
 import View_de from './Screens/View_de/View_de';
 import ProfileScreen from './Screens/ProfileScreen/ProfileScreen';
 import CreateAdd from './Screens/CreateAdd/CreateAdd';
+import UpdateAdd from './Screens/UpdateAdd/UpdateAdd';
 
 
 
@@ -33,6 +34,7 @@ const App = () =>(
         <Route path='/View_de' component={View_de} exact/>
         <Route path='/profile' component={ProfileScreen} />
         <Route path='/createAdd' component={CreateAdd} exact />
+        <Route path='/add/:id' component={UpdateAdd} exact />
       </main>
       <Footer />
 

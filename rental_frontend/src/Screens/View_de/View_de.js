@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Card, Button, Badge, Accordion, } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { cusList } from '../../actions/viewDetailsActions'
+import { cusList, deleteListAction } from '../../actions/viewDetailsActions'
 import MainScreen from '../../components/MainScreen'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
@@ -15,9 +15,12 @@ const View_de = () => {
     const { loading, cusInfo, error } = customerList;
     const [custList, setCusList] = useState([])
 
+    const deleteList = useSelector(state => state.deleteList);
+    const {loading:loadingDelete, error:errorDelete, success:successDelete} = deleteList;
+
     const deleteHandler = (id) => {
         if (window.confirm("Are You Sure")) {
-
+            dispatch(deleteListAction(id))
         }
     };
 
@@ -32,7 +35,7 @@ const View_de = () => {
 
     useEffect(()=>{
         setCusList(customerList && customerList.cusInfo && customerList.cusInfo.data ? customerList.cusInfo.data:[])
-    },[customerList]);
+    },[customerList, successDelete]);
 
 
     return (
@@ -40,6 +43,14 @@ const View_de = () => {
             <Link to="#">
                 <Button>View My Partners</Button>
             </Link><hr />
+            {errorDelete && (
+                <Error variant="danger">{errorDelete}</Error>
+            )}
+            {loadingDelete && (
+                <Loading />
+            )}
+
+
             {error && <Error variant="danger">{error}</Error>}
             {loading && <Loading />}
 
@@ -62,7 +73,7 @@ const View_de = () => {
                                 </span>
                                 <div>
                                     <Button variant="danger" className="mx-2"
-                                        onClick={() => deleteHandler()}>
+                                        onClick={() => deleteHandler(customer._id)}>
                                         Remove
                                     </Button>
                                 </div>
