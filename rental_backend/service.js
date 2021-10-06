@@ -3,8 +3,11 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const nodemon = require("nodemon");
+const ServicesRouter = require("./routes/services");
+
 const app = express();
+
+
 require("dotenv").config();
 
 
@@ -12,6 +15,8 @@ const PORT = process.env.PORT || 8092;
 
 app.use(cors());
 app.use(bodyParser.json());
+
+
 
 const URL = process.env.MONGODB_URL ;
 
@@ -27,9 +32,9 @@ connection.once("open", () => {
     console.log("MongoDb connection success!");
 })
 
-const servicesRouter = require("./routes/Services.js");
+const servicesRouter = require("./routes/services.js");
 
-app.use("./services", servicesRouter);
+app.use("/service", servicesRouter);
 
 
 
