@@ -1,22 +1,18 @@
 const router = require("express").Router();
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const todoRoutes = express.Router();
-const PORT = 8092cd;
-let services = require("../models/services.js");
+let Service = require("../models/Servicedetail");
 
-router.route("./add").post((req,res)=>{
 
-    const vehicleNo = req.body.name;
-    const dos = Number(req.body.age);
-    const Mileageatservice = req.body.name;
-    const PerformedBy = req.body.name;
-    const Note = req.body.name;
 
-    const newservices = new services({
+//create 
+router.route("/add").post((req,res)=>{
+
+    const vehicleNo = req.body.vehicleNo;
+    const dos = Date(req.body.dos);
+    const Mileageatservice =Number(req.body.Mileageatservice);
+    const PerformedBy = req.body.PerformedBy;
+    const Note = req.body.Note;
+
+    const newservices = new Service({
 
         vehicleNo,
         dos,
@@ -25,69 +21,75 @@ router.route("./add").post((req,res)=>{
         Note
 })
 
-newServices.save().then(()=>{
-    res.json("Service Added")
+    newservices.save().then(()=>{
+    res.json("Services Added")
 }).catch((err)=>{
     console.log(err);
 })
 })
-
+//get all data
 router.route("/").get((req,res)=>{
-
-    services.find().then((services)=>{
-        res.json(services)
-    }).catch((err)=>{
-        console.log(err)
+    Service.find().exec((err,service) =>{
+        if(err){
+            return res.status(400).json({
+                error:err
+            });
+        }
+        return res.status(200).json({
+            success:true,
+            existingService:service
+        });
     });
 });
 
-router.route("/update/:id").put(async(req, res)=>{
-    let userId = req.params.id;
-    const{vehicleNo,dos,Mileageatservice,PerformedBy,Note} = req.body;
+   //update data
+   router.put('/update/:id',(req, res)=>{
+    
+    Service.findByIdAndUpdate(
+        req.params.id,
+    
+    {
+        $set:req.body
+    },
+    (err,service)=>{
+        if(err){
+            return res.status(400).json({error:err});
+        }
 
-    const updateServices ={
-        vehicleNo,
-        dos,
-        Mileageatservice,
-        PerformedBy,
-        Note
+        return res.status(200).json({
+            success:"update"
+        });
     }
-
-    const update = await services.findByIdAndUpdate(userId.updateServices)
-    .then(() =>{
-        res.status(200).send({status: "updated", user:update})
-    }).catch((err) =>{
-        cosole.log(err);
-        res.status(500).send({status: "error with updating data",error: err.message});
-    });
+  );
+});
     
+
+    
+router.delete('/delete/:id' ,(req, res)=>{
+    Service.findByIdAndRemove(req.params.id).exec((err,deletedService) =>{
+
+        if(err) return res.status(400).json({
+            message:"Delete Unsuccesful",err
+        });
+
+        return res.json({
+            message:"Delete Successfull",deletedService
+        });
+    })
     
 });
-
-router.route("/delete/:id").delete(async(req, res)=>{
-    let userId = req.params.id;
-
-    await services.findByIdAndDelete(userId)
-     .then(() =>{
-         res.status(200).send({status: "deleted"});
-     }).catch((err) =>{
-         console.log(err.message);;
-         res.status(500).send({status: "error with delete data",error: err.message});
-     });
-
-
- });
-
- router.route("/get/:id").get(async(req, res)=>{
+ router.get("/get/:id",(req, res)=>{
      let userid = req.params.id;
-     const user = await services.findById(userid)
-       .then(() =>{
-           res.status(200).send({status: "user fechted", user:user})
-        }).catch(() => {
-            console.log(err.massege);
-            res.status(500).send({status: "error with get user",error: err.masssage});
+      Service.findById(userid,(err,service) =>{
+          if(err){
+              return res.status(400).json({success:false, err});
 
-        });
-        });
-
+          }
+          return res.status(200).json({
+              success:true,
+              service
+          });
+      });
+    });
+       
 module.exports = router;

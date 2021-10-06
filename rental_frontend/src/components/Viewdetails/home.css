@@ -1,0 +1,42 @@
+/*.bgimg{
+    background: url("./home.jpg");
+    
+    background-size: cover;
+    height:auto;
+}*/
+h1,h3{
+    color: rgb(43, 40, 40);
+    border: rgb(0, 0, 0);
+    text-decoration: rgb(10, 10, 10);
+    margin: 15px 0;
+    font-weight: 400;
+    font-family: Comic Sans;
+    }
+    .bgim{
+        background: url("./detail.jpg");
+        
+        background-size: cover;
+        height:auto;
+    }
+    .S1 {
+        font-family: 'Dancing Script', cursive;
+	    font-size: 80px;
+        color: rgb(0, 0, 0);
+        border: rgb(0, 0, 0);
+        text-decoration: cornsilk;
+        margin: 15px 0;
+        font-weight: 400;
+        }
+ .back{
+            background-color:rgb(240, 240, 250);
+            
+            background-size: cover;
+            height:auto;
+ }
+ .al{
+     text-align: center;
+ }
+ .Bh1{
+    text-align: center;
+
+ }

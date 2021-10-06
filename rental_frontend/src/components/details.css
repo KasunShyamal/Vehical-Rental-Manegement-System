@@ -1,0 +1,9 @@
+.bgimg{
+    background: url("./car.jpg");
+    
+    background-size: cover;
+    height:auto;
+}
+.col{
+    color: floralwhite;
+}
