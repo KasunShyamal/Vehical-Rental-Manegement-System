@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import axios from "axios";
+import '../CSS/AddStaff.css';
+import './Background.css';
+import { Link } from "react-router-dom";
 
 function AddStaff() {
 
@@ -35,18 +38,24 @@ function AddStaff() {
     }
 
     return(
+        <div className="backgroundImage">
         <div className = "container">
+            <div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h1 class="heading-section">Registration Form</h1>
+				</div>
+			</div>
             <form onSubmit = {sendData}>
                 <div className="form-group">
-                    <label for="name">Employee Name</label>
-                    <input type="text" className="form-control" id="name" placeholder="Enter Name"
+                    <label for="name"><b>Employee Name</b></label>
+                    <input type="text" className="form-control" id="name" placeholder="Enter Name" pattern="[a-z A-Z.]+"
                     onChange= {(e) =>{
                         setName(e.target.value);
                     }} />
                 </div>
 
                 <div className="form-group">
-                    <label for="DoB">DoB</label>
+                    <label for="DoB"><b>DoB</b></label>
                     <input type="text" className="form-control" id="age" placeholder="Enter DoB"
                     onChange= {(e) =>{
                         setDoB(e.target.value);
@@ -54,7 +63,7 @@ function AddStaff() {
                 </div>
 
                 <div className="form-group">
-                    <label for="NIC">NIC</label>
+                    <label for="NIC"><b>NIC</b></label>
                     <input type="nic" className="form-control" id="NIC" placeholder="Enter NIC"
                     onChange= {(e) =>{
                         setNIC(e.target.value);
@@ -62,7 +71,7 @@ function AddStaff() {
                 </div>    
 
                 <div className="form-group">
-                    <label for="Address">Address</label>
+                    <label for="Address"><b>Address</b></label>
                     <input type="text" className="form-control" id="Address" placeholder="Enter Address"
                     onChange= {(e) =>{
                         setAddress(e.target.value);
@@ -70,23 +79,23 @@ function AddStaff() {
                 </div>    
 
                 <div className="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" className="form-control" id="name" placeholder="Enter Name"
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" className="form-control" id="name" placeholder="Enter email"
                     onChange= {(e) =>{
                         setEmail(e.target.value);
                     }} />
                 </div>    
 
                 <div className="form-group">
-                    <label for="Phone">Phone</label>
-                    <input type="phone" className="form-control" id="Phone" placeholder="Enter Phone"
+                    <label for="Phone"><b>Phone</b></label>
+                    <input type="phone" className="form-control" id="Phone" placeholder="Enter Phone" pattern="[0-9]{10}"
                     onChange= {(e) =>{
                         setPhone(e.target.value);
                     }} />
                 </div>       
 
                 <div className="form-group">
-                    <label for="gender">Gender</label>
+                    <label for="gender"><b>Gender</b></label>
                     <input type="text" className="form-control" id="gender" placeholder="Enter gender"
                     onChange= {(e) =>{
                         setGender(e.target.value);
@@ -95,7 +104,7 @@ function AddStaff() {
 
                 
                 <div className="form-group">
-                    <label for="ID">ID</label>
+                    <label for="ID"><b>ID</b></label>
                     <input type="text" className="form-control" id="ID" placeholder="Enter ID"
                     onChange= {(e) =>{
                         setID(e.target.value);
@@ -103,7 +112,7 @@ function AddStaff() {
                 </div> 
 
                 <div className="form-group">
-                    <label for="JobTitle">JobTitle</label>
+                    <label for="JobTitle"><b>JobTitle</b></label>
                     <input type="text" className="form-control" id="JobTitle" placeholder="Enter JobTitle"
                     onChange= {(e) =>{
                         setJobTitle(e.target.value);
@@ -112,7 +121,7 @@ function AddStaff() {
 
                 
                 <div className="form-group">
-                    <label for="Experience">Experience</label>
+                    <label for="Experience"><b>Experience</b></label>
                     <input type="text" className="form-control" id="Experience" placeholder="Enter Experience"
                     onChange= {(e) =>{
                         setExperience(e.target.value);
@@ -121,7 +130,7 @@ function AddStaff() {
 
     
                 <div className="form-group">
-                    <label for="HireDate">HireDate</label>
+                    <label for="HireDate"><b>HireDate</b></label>
                     <input type="text" className="form-control" id="HireDate" placeholder="Enter HireDate"
                     onChange= {(e) =>{
                         setHireDate(e.target.value);
@@ -130,7 +139,7 @@ function AddStaff() {
 
                 
                 <div className="form-group">
-                    <label for="UserName">UserName</label>
+                    <label for="UserName"><b>UserName</b></label>
                     <input type="text" className="form-control" id="UserName" placeholder="Enter UserName"
                     onChange= {(e) =>{
                         setUserName(e.target.value);
@@ -139,7 +148,7 @@ function AddStaff() {
 
   
                 <div className="form-group">
-                    <label for="Password">Password</label>
+                    <label for="Password"><b>Password</b></label>
                     <input type="password" className="form-control" id="Password" placeholder="Enter Password"
                     onChange= {(e) =>{
                         setPassword(e.target.value);
@@ -147,16 +156,22 @@ function AddStaff() {
                 </div>   
 
                 <div className="form-group">
-                    <label for="userType">userType</label>
+                    <label for="userType"><b>userType</b></label>
                     <input type="userType" className="form-control" id="userType" placeholder="Enter userType"
                     onChange= {(e) =>{
                         setuserType(e.target.value);
                     }} />
                 </div>
+               
+                <div class="form-submit">
+                <button type="submit" className="btn btn-primary" >Submit</button>&nbsp;&nbsp;&nbsp;
+                <Link to="/" className="btn btn-danger ml-2">Cancel</Link>&nbsp;&nbsp;&nbsp;
+                <Link to="/" className="btn btn-success">View Staff</Link>
+                </div>
 
-        <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
+            </form>
         </div>
+    </div>
      )
 }
 

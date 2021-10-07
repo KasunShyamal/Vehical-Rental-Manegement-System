@@ -1,47 +1,47 @@
-import React from 'react'
-import{ Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-
-const Header = ( ) => {
-
-
-    return (
-        
-    <Navbar bg="primary" expand="lg" variant="dark">
-  <Container>
-    <Navbar.Brand href="/">Route Master</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="m-auto">
-      <Form inline>
-      <FormControl
-        type="text"
-        placeholder="Search"
-        className="mr-sm-2" 
-      />
+import React  from 'react';
+import styled, { withTheme } from 'styled-components';
+import logo from '../Pictures/logo7.png';
+const Header = ()=>{
+    return(
     
-    </Form>
-    </Nav>
-      <Nav className="m-auto">
-        {userInfo ? (<> 
-          <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/">Link</Nav.Link>
-        <NavDropdown title= {userInfo?.data.Name} id="basic-nav-dropdown">
-          <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item 
-            onClick={ logoutHandler }
-          >Log Out</NavDropdown.Item>
-          
-        </NavDropdown>
-        </> ): null }
-        
-      </Nav>
-   
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-        
+      
+        <MainContainer>
+          <img src={logo} alt="My logo"  style={{ height: 70, width: 70, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
+         <h3>ROUTE MASTER VEHICLE RENTAL ...</h3>
+         <h6>Call now</h6> 
+         <h6>011-23456300</h6>
+       
+        </MainContainer>
     )
+    
 }
-
-export default Header
+export default Header;
+//main container
+    
+const MainContainer = styled.header`
+  
+background-color:black;
+  width:100%;
+  height: 4rem;
+  h3{
+    transform:translate(-130%,-50%);
+    color:#66a3ff;
+    text-shadow: 0 0 1px white, 0 0 1px black;
+    font-weigth:3;
+    position:absolute;
+    top:6%;
+    font: 2rem Helvetica (sans-serif);
+    left:50%;
+  }
+ 
+  h6{
+    transform:translate(92%,-340%);
+    color:#66a3ff;
+   
+  }
+  h7{
+  
+    color:#1a75ff;
+    transform:translate(79%,-340%);
+  }
+`;

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import{ Container,Col, Row } from 'react-bootstrap'
 
-const Footer = () => {
+/*const Footer = () => {
     return (
        <footer
            style={{
@@ -21,4 +21,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default Footer */

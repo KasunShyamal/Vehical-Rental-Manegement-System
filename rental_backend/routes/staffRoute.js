@@ -18,7 +18,7 @@ router.route("/update/:id").put(updateInfo);
 //delete
 router.route("/delete/:id").delete(deleteInfo);
    
-//get a student details
+//get a staff details
 router.route("/get/:id").get(getInfoById);
    
 module.exports = router;

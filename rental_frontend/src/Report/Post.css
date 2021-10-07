@@ -1,0 +1,13 @@
+.Post{
+    max-width: 200px;
+    width: 100%;
+    display: table;
+    margin: 0 auto;
+    padding: 20px 50px;
+  }
+
+.form-submit {
+    text-align: center; }  
+
+.form-submit1 {
+        text-align: right; }    

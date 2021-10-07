@@ -12,7 +12,7 @@ const staffSchema = new Schema({
     },
     NIC : {
         type : String,
-        match : /^([0-9]{9}[x|X|v|V]|[0-9]{12})$/,
+        //match : /^([0-9]{9}[x|X|v|V]|[0-9]{12})$/,
         required : true
         
     },
