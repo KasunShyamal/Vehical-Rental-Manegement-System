@@ -15,22 +15,22 @@ return (
 		<Row>
 		<Column>
 			<Heading>About Us</Heading>
-			<FooterLink href="#">Aim</FooterLink>
-			<FooterLink href="#">Vision</FooterLink>
+			<FooterLink href="#">Stay Safe With</FooterLink>
+			<FooterLink href="#">Route Master</FooterLink>
 		
 		</Column>
 		<Column>
 			<Heading>Services</Heading>
-			<FooterLink href="#">Writing</FooterLink>
-			<FooterLink href="#">Internships</FooterLink>
-			<FooterLink href="#">Coding</FooterLink>
+			<FooterLink href="#">Rent Vehicles</FooterLink>
+			<FooterLink href="#">Vehicle Maintain</FooterLink>
+			<FooterLink href="#">Promote Adds</FooterLink>
 			
 		</Column>
 		<Column>
 			<Heading>Contact Us</Heading>
-			<FooterLink href="#">Uttar Pradesh</FooterLink>
-			<FooterLink href="#">Ahemdabad</FooterLink>
-			<FooterLink href="#">Indore</FooterLink>
+			<FooterLink href="#">NO:56/111</FooterLink>
+			<FooterLink href="#">Temple Road</FooterLink>
+			<FooterLink href="#">Kandy</FooterLink>
 			
 		</Column>
 		<Column>

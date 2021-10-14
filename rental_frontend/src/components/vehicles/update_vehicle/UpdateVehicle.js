@@ -278,7 +278,7 @@ const CreateContainer = styled.div`
   }
 
 background: black;
-height:90px;
+
 .nav-link{
 color:white !important;
 &:hover{

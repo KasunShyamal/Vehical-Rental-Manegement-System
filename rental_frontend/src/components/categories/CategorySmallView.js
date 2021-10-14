@@ -15,7 +15,9 @@ const CategorySmallView = (props) => {
             width: "100%"
         }
     }
- // Function for delete vehicle
+
+    
+ // Function for delete category
  const deleteCategory = () => {
     Swal.fire({
         title: 'Are you want to delete category',

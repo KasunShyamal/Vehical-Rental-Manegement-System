@@ -129,6 +129,27 @@ class CreateVehicle extends Component {
         }
 
     }
+//demo function
+//demo button
+createDemo= () => {
+    
+    
+        this.setState({
+            image: "v1.png",
+            brand: "Toyota",
+            vehicleNumber: "CAS_2467",
+            price: "3600",
+            milage: "1500",
+            sheets: "4",
+            condition: " the vehicle has some mechanical or cosmetic defects and needs servicing but is still in reasonable running condition. This vehicle has a clean Title History, the paint, body and/or interior need work performed by a professional",
+            description: "he engine compartment is clean, with no fluid leaks and is free of any wear or visible defects. The vehicle also has complete and verifiable service records. Less than 5 percent of all used vehicles fall into this category",
+            category: "car",
+          
+        });
+  
+
+}
+
 
     render() {
         return (   
@@ -239,6 +260,7 @@ class CreateVehicle extends Component {
                                     </div>
                                     <div className="d-grid gap-2 mx-auto">
                                         <button type="submit" className="btn btn-primary">Create Vehicle</button>
+                                        <button onClick={this.createDemo} className={"btn btn-primary"}>Demo</button>
                                     </div>
                                 </form>
                             </div>

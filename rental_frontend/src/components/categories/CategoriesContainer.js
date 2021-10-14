@@ -41,6 +41,13 @@ class CategoriesContainer extends Component {
             Alert("error", "Something went wrong.", err);
         });
     }
+//demo button
+createDemo= () => {
+    
+        this.setState({ category: "vanns" });
+      
+    
+}
 
 //component to return multiple elements.
 // Fragments let you group a list of children without adding extra nodes to the DOM.
@@ -64,7 +71,9 @@ class CategoriesContainer extends Component {
                                     onChange={(e) => this.onInputValueChange(e)}
                                 />
                             </div>
+                            
                             <button onClick={this.createCategory} className={"btn btn-primary"}>Create</button>
+                            
                         </div>
                         <div className={"col-xs-21 col-sm-5"}>
                             <h3 className={"text-secondary text-center"}>All Categories</h3>
